@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply to Perform | Move Mountains Artisan Market</title>
+  <meta name="description" content="Musician application for Move Mountains Artisan Market. Acoustic, folk, singer-songwriter, and family-friendly live music across our Austin-area markets.">
+  <meta name="theme-color" content="#2D5016">
+  <meta property="og:title" content="Apply to Perform | Move Mountains Artisan Market">
+  <meta property="og:description" content="Apply to perform live music at Move Mountains Artisan Market.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css?v=20260418b">
+  <style>
+    .eyebrow{font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--terra,#C4653A);margin-bottom:12px}
+    .eyebrow a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+    .page-hero{padding:72px 0 24px;background:linear-gradient(180deg,var(--cream,#FAF3E0) 0%,var(--bg,#FEFCF8) 100%)}
+    .page-hero h1{font-family:var(--font-head,"Fraunces",Georgia,serif);font-weight:500;font-size:clamp(2rem,4vw,3rem);color:var(--text-dark,#2C1810);line-height:1.1;margin:0 0 16px;letter-spacing:-.015em}
+    .page-hero .lede{font-size:1.15rem;color:var(--text-body,#4A3728);max-width:640px;line-height:1.6}
+    .page-intro{padding:48px 0 88px;background:var(--bg,#FEFCF8)}
+    .intro-block{max-width:720px;margin:0 auto}
+    .intro-block h2{font-family:var(--font-head,"Fraunces",Georgia,serif);font-weight:500;font-size:1.6rem;color:var(--text-dark,#2C1810);margin:0 0 16px}
+    .intro-block p{font-size:1.02rem;line-height:1.75;color:var(--text-body,#4A3728);margin-bottom:16px}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .role-form-wrapper{max-width:720px;margin:0 auto}
+    .role-form{background:#fff;border:1px solid var(--rule,#ddd4c4);border-radius:10px;padding:40px 36px;box-shadow:0 1px 3px rgba(44,24,16,.05);margin-top:32px}
+    .role-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+    .role-form .form-group{display:flex;flex-direction:column;margin-bottom:20px}
+    .role-form label{font-size:.78rem;font-weight:600;color:var(--text-dark,#2C1810);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+    .role-form input[type=text],.role-form input[type=email],.role-form input[type=tel],.role-form input[type=url],.role-form select,.role-form textarea{width:100%;padding:12px 14px;border:1.5px solid var(--rule,#ddd4c4);border-radius:6px;font-family:var(--font-body,"Source Sans 3",system-ui,sans-serif);font-size:1rem;color:var(--text-dark,#2C1810);background:var(--bg,#FEFCF8);transition:border-color .2s,box-shadow .2s}
+    .role-form textarea{resize:vertical;min-height:120px}
+    .role-form input:focus,.role-form select:focus,.role-form textarea:focus{outline:none;border-color:var(--green,#2D5016);box-shadow:0 0 0 3px rgba(45,80,22,.12)}
+    .role-form .checkbox-group{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+    .role-form .checkbox-row{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:var(--text-body,#4A3728)}
+    .role-form .checkbox-row input[type=checkbox]{margin-top:4px;accent-color:var(--green,#2D5016)}
+    .role-form .checkbox-row{text-transform:none;letter-spacing:normal;font-weight:400;margin-bottom:0;cursor:pointer;width:100%;text-align:left;justify-content:flex-start}
+    .role-form .checkbox-row span{flex:1;line-height:1.5}
+    .role-form .helper{font-size:.85rem;color:var(--text-muted,#7a6255);margin-top:6px;line-height:1.45}
+    .role-form .submit-btn{margin-top:10px;padding:14px 28px;background:var(--green,#2D5016);color:#fff;border:none;border-radius:6px;font-family:var(--font-body,"Source Sans 3",system-ui,sans-serif);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer;transition:background .2s,transform .1s}
+    .role-form .submit-btn:hover{background:var(--green-dark,#1e3510)}
+    .role-form .submit-btn:disabled{opacity:.7;cursor:default}
+    .success-note{display:none;margin-top:24px;padding:18px 20px;background:rgba(45,80,22,.06);border-left:3px solid var(--green,#2D5016);border-radius:4px;font-size:.95rem;color:var(--green-dark,#1e3510);line-height:1.55}
+    .success-note.show{display:block}
+    .form-footer-note{margin-top:18px;font-size:.85rem;color:var(--text-muted,#7a6255);line-height:1.55;text-align:center}
+    @media (max-width:600px){.role-form{padding:28px 22px}.role-form .form-row{grid-template-columns:1fr;gap:0}}
+  
+    /* ===== AGGRESSIVE CHECKBOX-ROW OVERRIDE (v3, 2026-04-18) ===== */
+    /* v2 missed: global .form-group input{width:100%;padding:14px 18px} in
+       styles.css line 1111 was stretching the checkbox input to full row
+       width, shoving the <span> into a narrow right column. v3 resets
+       width + padding on checkbox inputs explicitly. */
+    .form-group .checkbox-row,
+    .role-form .checkbox-row,
+    label.checkbox-row{
+      display:flex !important;
+      flex-direction:row !important;
+      align-items:flex-start !important;
+      gap:10px !important;
+      width:100% !important;
+      text-align:left !important;
+      justify-content:flex-start !important;
+      text-transform:none !important;
+      letter-spacing:normal !important;
+      font-weight:400 !important;
+      font-size:.95rem !important;
+      color:var(--text-body,#4A3728) !important;
+      margin-bottom:10px !important;
+      line-height:1.5 !important;
+      cursor:pointer !important;
+    }
+    /* CRITICAL: stop .form-group input{width:100%} from stretching the checkbox */
+    .form-group input[type=checkbox],
+    .form-group .checkbox-row input[type=checkbox],
+    .role-form input[type=checkbox],
+    .role-form .checkbox-row input[type=checkbox],
+    label.checkbox-row input[type=checkbox]{
+      width:16px !important;
+      max-width:16px !important;
+      min-width:16px !important;
+      height:16px !important;
+      padding:0 !important;
+      margin:4px 0 0 0 !important;
+      flex:0 0 16px !important;
+      border:none !important;
+      background:transparent !important;
+      accent-color:var(--green,#2D5016) !important;
+      cursor:pointer !important;
+    }
+    .form-group .checkbox-row span,
+    .role-form .checkbox-row span,
+    label.checkbox-row span{
+      flex:1 1 auto !important;
+      line-height:1.5 !important;
+      text-align:left !important;
+      display:inline !important;
+      text-transform:none !important;
+      letter-spacing:normal !important;
+      font-weight:400 !important;
+      font-size:.95rem !important;
+      color:var(--text-body,#4A3728) !important;
+    }
+    .checkbox-group{
+      display:flex !important;
+      flex-direction:column !important;
+      gap:10px !important;
+      width:100% !important;
+    }
+</style>
+</head>
+<body>
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Move Mountains Artisan Market home">
+        <div class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2 L22 20 H2 Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M7 14 L12 6 L17 14" fill="currentColor" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <span class="name">Move Mountains</span>
+          <span class="sub">Artisan Market</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="../../events/">Events</a></li>
+        <li><a href="../../vendors/">Vendors</a></li>
+        <li><a href="../../about/">Our Story</a></li>
+        <li><a href="../" class="active">Get Involved</a></li>
+        <li><a href="../../contact/" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="../../events/">Events</a>
+    <a href="../../vendors/">Vendors</a>
+    <a href="../../about/">Our Story</a>
+    <a href="../">Get Involved</a>
+    <a href="../../contact/">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow"><a href="../">Get Involved</a> / Apply to Perform</p>
+        <h1>Share your sound with the market.</h1>
+        <p class="lede">We book musicians for every market day across our Austin-area venues. Acoustic sets, small duos, and family-friendly live performance fit our format best.</p>
+      </div>
+    </section>
+
+    <section class="page-intro">
+      <div class="container">
+        <div class="intro-block">
+          <h2>What to expect</h2>
+          <p>Each market runs for four hours. Musicians typically play two or three 45 to 60-minute sets with short breaks. Our venues are outdoor or semi-covered, so weather plays a role.</p>
+          <p>We cover a performance honorarium plus a complimentary vendor-space setup if you sell music merchandise at your booth. We accept applications on a rolling basis and book the calendar one to two months ahead.</p>
+        </div>
+        <div class="role-form-wrapper">
+          <form class="role-form" id="musician-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="m-name">Artist or band name</label>
+                <input type="text" id="m-name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="m-contact">Contact person</label>
+                <input type="text" id="m-contact" name="contact" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="m-email">Email</label>
+                <input type="email" id="m-email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="m-phone">Phone</label>
+                <input type="tel" id="m-phone" name="phone">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="m-genre">Genre or style</label>
+              <input type="text" id="m-genre" name="genre" placeholder="e.g. acoustic folk, singer-songwriter, praise, bluegrass">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="m-setup">Typical setup</label>
+                <select id="m-setup" name="setup">
+                  <option value="solo">Solo</option>
+                  <option value="duo">Duo</option>
+                  <option value="trio">Trio</option>
+                  <option value="band">Full band (4+)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="m-experience">Years performing</label>
+                <input type="text" id="m-experience" name="experience" placeholder="e.g. 5 years">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="m-links">Links to music (Spotify, YouTube, SoundCloud, Instagram)</label>
+              <textarea id="m-links" name="links" placeholder="Paste one link per line" required></textarea>
+              <p class="helper">We listen to every application. Please share at least one recording or live clip.</p>
+            </div>
+            <div class="form-group">
+              <label for="m-availability">General availability</label>
+              <textarea id="m-availability" name="availability" placeholder="Weekends, specific months, or dates you already know you are booked"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="m-rate">Preferred honorarium</label>
+              <input type="text" id="m-rate" name="rate" placeholder="Rough rate for a 3-hour outdoor market">
+              <p class="helper">We do our best to match. Flexible applicants tend to get booked first.</p>
+            </div>
+            <div class="form-group">
+              <label for="m-notes">Anything else we should know</label>
+              <textarea id="m-notes" name="notes" placeholder="Gear needs, accessibility, group dynamic, faith-based repertoire, etc."></textarea>
+            </div>
+            <div class="checkbox-group">
+              <label class="checkbox-row"><input type="checkbox" id="m-own-pa" name="own-pa"> <span>I bring my own PA and mics.</span></label>
+              <label class="checkbox-row"><input type="checkbox" id="m-outdoor" name="outdoor"> <span>I am comfortable playing outdoors in Texas weather.</span></label>
+              <label class="checkbox-row"><input type="checkbox" id="m-family" name="family-ok"> <span>All of my material is family-friendly.</span></label>
+            </div>
+            <button type="submit" class="submit-btn">Submit application</button>
+            <p class="form-footer-note">We respond to every application, usually within 7 business days.</p>
+            <div class="success-note" id="m-success" role="status" aria-live="polite">Thank you. Your application is in. We will listen to your music and follow up by email within a week.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <p class="footer-logo-text">Move Mountains Artisan Market</p>
+            <p class="footer-tagline">Empowering local artisans. Austin &amp; Manor, TX.</p>
+          </div>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <div class="footer-nav-col">
+              <h4>Visit</h4>
+              <ul role="list">
+                <li><a href="../../events/">Upcoming Events</a></li>
+                <li><a href="../../events/">Venue Locations</a></li>
+                <li><a href="../../about/">Our Story</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-col">
+              <h4>Vendors</h4>
+              <ul role="list">
+                <li><a href="../../vendors/">Vendor Directory</a></li>
+                <li><a href="../../vendors/">Apply to Vend</a></li>
+                <li><a href="../../contact/">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-col">
+              <h4>Get Involved</h4>
+              <ul role="list">
+                <li><a href="../">Overview</a></li>
+                <li><a href="../musician/">Play Music</a></li>
+                <li><a href="../volunteer/">Volunteer</a></li>
+                <li><a href="../employment/">Careers</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="https://www.instagram.com/movemountainsmarket" target="_blank" rel="noopener noreferrer" aria-label="Instagram @movemountainsmarket">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/MoveMountainsMarket" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@movemountainsmarket" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.01-8.12a8.14 8.14 0 004.77 1.52V5.26a4.85 4.85 0 01-1-.57z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Move Mountains Artisan Market. All rights reserved.</p>
+          <p>Austin &amp; Manor, TX &bull; Operating since 2022</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  (function(){
+    var form = document.getElementById("musician-form");
+    var success = document.getElementById("m-success");
+    if (!form || !success) return;
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      success.classList.add("show");
+      var btn = form.querySelector("button[type=submit]");
+      if (btn) { btn.disabled = true; btn.textContent = "Application submitted"; }
+      var inputs = form.querySelectorAll("input, textarea, select");
+      inputs.forEach(function(inp){ inp.disabled = true; });
+      success.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  })();
+  </script>
+  <script src="/js/chatbot-kb.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

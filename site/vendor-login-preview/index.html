@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendor Portal Preview | Move Mountains Artisan Market</title>
+<meta name="description" content="Visual preview of the Move Mountains vendor portal login experience. Not live.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2D5016;--green-dark:#1e3510;--terra:#C4653A;--cream:#FAF3E0;--bg:#FEFCF8;--text-dark:#2C1810;--text-body:#4A3728;--text-muted:#7a6255;--rule:#ddd4c4;--font-head:"Fraunces",Georgia,serif;--font-body:"Source Sans 3",system-ui,sans-serif;--shadow:0 1px 3px rgba(44,24,16,.06),0 10px 40px rgba(44,24,16,.08)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(140deg,var(--cream) 0%,var(--bg) 55%,#f6ece0 100%);color:var(--text-body);font-family:var(--font-body);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.preview-banner{background:var(--green-dark);color:var(--cream);text-align:center;padding:10px 16px;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase}
+.preview-banner strong{color:#fff}
+.wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px 60px}
+.card{width:100%;max-width:440px;background:#fff;border-radius:10px;padding:48px 44px 40px;box-shadow:var(--shadow);border:1px solid var(--rule)}
+.brand{text-align:center;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid var(--rule)}
+.brand-mark{width:56px;height:56px;margin:0 auto 14px;color:var(--green)}
+.brand-name{font-family:var(--font-head);font-weight:500;font-size:1.4rem;color:var(--text-dark);line-height:1.1;letter-spacing:-.01em}
+.brand-sub{font-family:var(--font-body);font-weight:300;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.22em;margin-top:6px}
+h1{font-family:var(--font-head);font-weight:500;font-size:1.75rem;color:var(--text-dark);text-align:center;line-height:1.2;margin-bottom:10px;letter-spacing:-.01em}
+.lede{text-align:center;font-size:.95rem;color:var(--text-muted);margin-bottom:28px;line-height:1.55}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--text-dark);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+input[type="email"]{width:100%;padding:13px 14px;border:1.5px solid var(--rule);border-radius:6px;font-family:var(--font-body);font-size:1rem;color:var(--text-dark);background:var(--bg);transition:border-color .2s,box-shadow .2s}
+input[type="email"]:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(45,80,22,.12)}
+.btn{width:100%;margin-top:20px;padding:14px 20px;background:var(--green);color:#fff;border:none;border-radius:6px;font-family:var(--font-body);font-weight:600;font-size:.95rem;letter-spacing:.03em;cursor:pointer;transition:background .2s,transform .1s}
+.btn:hover{background:var(--green-dark)}
+.btn:active{transform:translateY(1px)}
+.help{margin-top:22px;padding-top:20px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--text-muted);line-height:1.55}
+.help a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.scripture{margin-top:32px;text-align:center;font-family:var(--font-head);font-style:italic;font-size:.86rem;color:var(--text-muted);line-height:1.55}
+.scripture .ref{display:block;font-style:normal;font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;margin-top:6px;color:var(--terra)}
+.success{display:none;margin-top:18px;padding:14px 16px;background:rgba(45,80,22,.06);border-left:3px solid var(--green);border-radius:4px;font-size:.9rem;color:var(--green-dark)}
+.success.show{display:block}
+footer{text-align:center;padding:24px 16px 32px;font-size:.78rem;color:var(--text-muted);line-height:1.7}
+footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
+.role-toggle{display:flex;gap:6px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:4px;margin-bottom:24px}
+.role-toggle button{flex:1;padding:9px 10px;background:transparent;border:none;font-family:var(--font-body);font-weight:600;font-size:.82rem;color:var(--text-muted);letter-spacing:.04em;cursor:pointer;border-radius:5px;transition:background .2s,color .2s}
+.role-toggle button.active{background:#fff;color:var(--green);box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.btn:disabled{opacity:.7;cursor:default}
+.seed-note{margin-top:14px;padding:10px 12px;background:rgba(196,101,58,.07);border-left:3px solid var(--terra);border-radius:4px;font-size:.82rem;color:var(--text-body);line-height:1.5}
+.seed-note strong{color:var(--text-dark);font-weight:600}
+.seed-note code{font-family:Menlo,Consolas,monospace;background:rgba(44,24,16,.06);padding:1px 5px;border-radius:3px;font-size:.82rem}
+@media (max-width:500px){.card{padding:36px 28px 32px}h1{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<div class="preview-banner"><strong>Visual Preview</strong> &middot; This screen is a design mockup. No real login, no password fields, no credentials collected.</div>
+<div class="wrap">
+<main class="card" role="main">
+<div class="brand">
+<div class="brand-mark" aria-hidden="true">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 2 L22 20 H2 Z"/>
+<path d="M7 14 L12 6 L17 14" fill="currentColor" opacity="0.45" stroke="none"/>
+</svg>
+</div>
+<div class="brand-name">Move Mountains</div>
+<div class="brand-sub">Vendor Portal</div>
+</div>
+<h1>Sign in to your portal</h1>
+<p class="lede">Enter your email and we will send you a one-time secure link. No password to remember.</p>
+<div class="role-toggle" role="tablist" aria-label="Select portal type">
+<button type="button" class="active" data-role="vendor" role="tab" aria-selected="true">Vendor</button>
+<button type="button" data-role="applicant" role="tab" aria-selected="false">Applicant</button>
+<button type="button" data-role="admin" role="tab" aria-selected="false">Admin</button>
+</div>
+<form id="login-form" novalidate>
+<label for="email">Email address</label>
+<input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+<button type="submit" class="btn">Send me a sign-in link</button>
+<div class="success" id="success" role="status" aria-live="polite">Preview only. In the real portal, a magic link would be emailed within a few seconds. Click the link in your email and you are signed in. No password, ever.</div>
+<div class="seed-note" id="seed-note"><strong>Admin role preview:</strong> The Aeopic-side admin seat is <code>admin@aeopic.com</code>. A second admin seat is provisioned for the Move Mountains owner at launch. Vendor and applicant seats are created per email.</div>
+</form>
+<p class="help">Not a vendor yet? <a href="../contact/">Apply to vend</a> at your preferred location.</p>
+<p class="scripture">Faith the size of a mustard seed can move mountains.<span class="ref">Matthew 17:20</span></p>
+</main>
+</div>
+<footer>
+<p>Move Mountains Artisan Market &middot; Austin &amp; Manor, TX</p>
+<p style="margin-top:6px">Preview build by Aeopic. <a href="/">Back to main site</a></p>
+</footer>
+<script>
+var form=document.getElementById("login-form");
+var success=document.getElementById("success");
+var emailInput=document.getElementById("email");
+var roleButtons=document.querySelectorAll(".role-toggle button");
+var placeholders={vendor:"you@vendor-email.com",applicant:"you@your-email.com",admin:"admin@aeopic.com"};
+roleButtons.forEach(function(btn){
+  btn.addEventListener("click",function(){
+    roleButtons.forEach(function(b){b.classList.remove("active");b.setAttribute("aria-selected","false")});
+    btn.classList.add("active");
+    btn.setAttribute("aria-selected","true");
+    var r=btn.getAttribute("data-role");
+    emailInput.placeholder=placeholders[r]||"you@example.com";
+    if(r==="admin"){emailInput.value="admin@aeopic.com"}else{emailInput.value=""}
+  });
+});
+form.addEventListener("submit",function(e){
+  e.preventDefault();
+  var email=emailInput.value.trim();
+  if(!email||email.indexOf("@")===-1){emailInput.focus();return}
+  success.classList.add("show");
+  var b=form.querySelector("button[type=submit]");
+  b.textContent="Link sent (preview)";
+  b.disabled=true;
+});
+</script>
+</body>
+</html>

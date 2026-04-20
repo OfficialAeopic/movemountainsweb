@@ -1,0 +1,26 @@
+# Whitelist approach: deny everything at root, then allow specific items.
+# Keeps business/internal docs local, only the website and its CHANGELOG ship to this repo.
+
+/*
+!.gitignore
+!.github/
+!README.md
+!CHANGELOG.md
+!site/
+
+# Deny common junk anywhere
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+**/.cache/
+**/__pycache__/
+**/.DS_Store
+**/Thumbs.db
+**/*.log
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/credentials*
+**/secrets*

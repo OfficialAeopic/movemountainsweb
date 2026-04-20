@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendors &amp; Apply to Vend | Move Mountains Artisan Market</title>
+  <meta name="description" content="Join Move Mountains Artisan Market as a vendor. Learn about booth sizes, pricing, the application process, and what it means to be part of Austin's community artisan market.">
+  <meta name="theme-color" content="#2D5016">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    .booth-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 48px 0;
+    }
+
+    .booth-card {
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      padding: 40px 32px;
+      position: relative;
+    }
+
+    .booth-card.featured {
+      border-top: 3px solid var(--terra);
+    }
+
+    .booth-card .booth-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .booth-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .booth-card .booth-size {
+      font-size: 0.9rem;
+      color: var(--terra);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .booth-card .booth-price {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .booth-card .booth-price-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .booth-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .booth-card li {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .booth-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--terra);
+    }
+
+    .faq-list {
+      margin-top: 48px;
+    }
+
+    .faq-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--rule);
+    }
+
+    .faq-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+
+    .faq-item p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .booth-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Move Mountains Artisan Market home">
+        <div class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2 L22 20 H2 Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M7 14 L12 6 L17 14" fill="currentColor" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <span class="name">Move Mountains</span>
+          <span class="sub">Artisan Market</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="../">Home</a></li>
+        <li><a href="../events/">Events</a></li>
+        <li><a href="../vendors/" class="active">Vendors</a></li>
+        <li><a href="../about/">Our Story</a></li>
+        <li><a href="../get-involved/">Get Involved</a></li>
+        <li><a href="../contact/" class="nav-cta">Contact</a></li>
+      </ul>
+
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+    <a href="../">Home</a>
+    <a href="../events/">Events</a>
+    <a href="../vendors/">Vendors</a>
+    <a href="../about/">Our Story</a>
+    <a href="../get-involved/">Get Involved</a>
+    <a href="../contact/">Contact</a>
+  </div>
+
+  <main>
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <img
+        src="../images/interior.jpg"
+        alt="A row of artisan market vendor tents with handmade goods displayed on tables, shoppers browsing in warm afternoon light"
+        class="page-hero-img"
+        loading="eager"
+        width="1600"
+        height="460"
+      >
+    </div>
+
+    <section class="page-intro" aria-labelledby="vendors-page-heading">
+      <div class="container">
+        <div class="constrained">
+          <p class="eyebrow">Join the Market</p>
+          <h1 id="vendors-page-heading">Vendor Information</h1>
+          <p class="lead">
+            Move Mountains brings together dozens of artisan vendors at each event. We are selective, community-focused,
+            and committed to giving every maker a platform that matches the quality of their work. If you make it,
+            grow it, bake it, or create it, there is a place for you here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Vendor Info Cards -->
+    <section class="content-block" aria-labelledby="vendor-info-heading">
+      <div class="container">
+        <span class="section-label">What to Expect</span>
+        <h2 id="vendor-info-heading">What Being a Market Vendor Looks Like</h2>
+        <div class="vendor-info-grid">
+          <div class="vendor-info-card">
+            <div class="vic-icon" aria-hidden="true">&#127979;</div>
+            <h3>Consistent Monthly Events</h3>
+            <p>Three events per month across three different neighborhoods. Book one venue or all three. Recurring vendors get priority access for the following month.</p>
+          </div>
+          <div class="vendor-info-card">
+            <div class="vic-icon" aria-hidden="true">&#128101;</div>
+            <h3>Built-In Foot Traffic</h3>
+            <p>Brookfield Residential community partnerships bring local residents directly to the market. These are not passers-by. They are neighbors coming specifically to shop.</p>
+          </div>
+          <div class="vendor-info-card">
+            <div class="vic-icon" aria-hidden="true">&#127926;</div>
+            <h3>A Real Market Experience</h3>
+            <p>Live music, family activities, and a monthly raffle create an atmosphere where shoppers stay longer and buy more. This is not a swap meet. It is a destination.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Booth Options -->
+    <section class="content-block" aria-labelledby="booth-heading">
+      <div class="container">
+        <span class="section-label">Booth Options</span>
+        <h2 id="booth-heading">Find the Right Fit</h2>
+        <p>Booth fees are confirmed during the application review. Contact us for current rates and recurring vendor options.</p>
+        <div class="booth-options">
+          <div class="booth-card">
+            <p class="booth-label">Compact</p>
+            <h3>Single Booth</h3>
+            <p class="booth-size">10 x 10 ft</p>
+            <p class="booth-price">Contact for pricing</p>
+            <p class="booth-price-note">per event</p>
+            <ul>
+              <li>One standard 10x10 space</li>
+              <li>Access to vendor lot parking</li>
+              <li>Listing in event announcements</li>
+              <li>Setup: 1.5 hrs before open</li>
+            </ul>
+          </div>
+          <div class="booth-card featured">
+            <p class="booth-label">Most Popular</p>
+            <h3>Double Booth</h3>
+            <p class="booth-size">10 x 20 ft</p>
+            <p class="booth-price">Contact for pricing</p>
+            <p class="booth-price-note">per event</p>
+            <ul>
+              <li>Double-wide 10x20 space</li>
+              <li>Corner placement preferred</li>
+              <li>Social media vendor spotlight</li>
+              <li>Priority booking next month</li>
+            </ul>
+          </div>
+          <div class="booth-card">
+            <p class="booth-label">Premium</p>
+            <h3>Corner Feature</h3>
+            <p class="booth-size">12 x 12 ft corner</p>
+            <p class="booth-price">Contact for pricing</p>
+            <p class="booth-price-note">per event (limited)</p>
+            <ul>
+              <li>High-visibility corner placement</li>
+              <li>Two-sided shopper access</li>
+              <li>Featured in event marketing</li>
+              <li>Social media spotlight post</li>
+            </ul>
+          </div>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-muted);">Current booth rates and multi-event packages are provided directly by the market director upon application review.</p>
+      </div>
+    </section>
+
+    <!-- Pull Quote -->
+    <section class="pull-quote" aria-label="Vendor community quote">
+      <div class="container">
+        <blockquote>
+          "We are building more than a market. We are building a platform for makers who deserve more than a Etsy listing."
+          <cite>Move Mountains Artisan Market</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Application Process -->
+    <section class="apply-section" aria-labelledby="apply-heading">
+      <div class="container">
+        <span class="section-label">How to Apply</span>
+        <h2 id="apply-heading">Four Steps to Your First Market</h2>
+        <div class="apply-steps">
+          <div class="apply-step">
+            <div class="apply-step-num" aria-hidden="true">01</div>
+            <h4>Submit Your Application</h4>
+            <p>Fill out the vendor application form with your business name, product category, and social media links. Applications reviewed within one week.</p>
+          </div>
+          <div class="apply-step">
+            <div class="apply-step-num" aria-hidden="true">02</div>
+            <h4>Approval &amp; Booth Selection</h4>
+            <p>Once approved, you receive a confirmation with available booth sizes and your event date options for the upcoming month.</p>
+          </div>
+          <div class="apply-step">
+            <div class="apply-step-num" aria-hidden="true">03</div>
+            <h4>Secure Your Spot</h4>
+            <p>Confirm your booth and remit the booth fee provided in your approval email to hold your space. Spots are first-come, first-served after approval. Recurring vendors receive early access.</p>
+          </div>
+          <div class="apply-step">
+            <div class="apply-step-num" aria-hidden="true">04</div>
+            <h4>Set Up and Sell</h4>
+            <p>Arrive 1.5 hours before the market opens. Bring your own tent, tables, and displays. The market handles the rest.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 16px;">
+          <a href="https://forms.gle/jWC4n2t4qfdfmTcC9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply to Vend</a>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Vendor Categories -->
+    <section class="editorial-section" aria-labelledby="cat-heading">
+      <div class="container">
+        <span class="section-label">Vendor Categories</span>
+        <h2 id="cat-heading">What We Accept</h2>
+        <ul class="editorial-list" role="list">
+          <li>
+            <span class="el-name">Food &amp; Baked Goods</span>
+            <p class="el-desc">Artisan food vendors including bakers, confectioners, specialty food producers, and non-alcoholic beverage makers. All items must be cottage-law compliant or commercially licensed.</p>
+          </li>
+          <li>
+            <span class="el-name">Jewelry &amp; Accessories</span>
+            <p class="el-desc">Handcrafted jewelry of all styles and materials. No imported wholesale jewelry resellers. Every piece must be handmade by the vendor or a direct collaborator.</p>
+          </li>
+          <li>
+            <span class="el-name">Art, Prints &amp; Photography</span>
+            <p class="el-desc">Original artwork, limited-edition prints, photography, and digital art printed by the artist. Custom commissions welcome.</p>
+          </li>
+          <li>
+            <span class="el-name">Home Decor &amp; Crafts</span>
+            <p class="el-desc">Wood crafts, ceramics, candles, macrame, wreaths, and any handmade home goods. Emphasis on craftsmanship over volume.</p>
+          </li>
+          <li>
+            <span class="el-name">Apparel &amp; Fiber Arts</span>
+            <p class="el-desc">Custom clothing, crochet, knit pieces, screen-printed apparel, and textile work. Small-run or one-of-a-kind encouraged.</p>
+          </li>
+          <li>
+            <span class="el-name">Bath, Body &amp; Wellness</span>
+            <p class="el-desc">Handmade soaps, lotions, candles, bath products, and wellness items. All products must meet applicable labeling requirements.</p>
+          </li>
+          <li>
+            <span class="el-name">Specialty &amp; Other</span>
+            <p class="el-desc">Pet products, books, imported wines (with permit), plants, and other artisan categories not listed above. Reviewed case-by-case.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- FAQ -->
+    <section class="content-block" aria-labelledby="faq-heading">
+      <div class="container constrained">
+        <span class="section-label">Frequently Asked</span>
+        <h2 id="faq-heading">Vendor FAQ</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Do I need to be an established business to apply?</h3>
+            <p>No. Hobbyists and first-time market vendors are welcome. You do not need a registered business entity to apply, though food vendors may need appropriate permits.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do I need to bring my own tent and tables?</h3>
+            <p>Yes. Vendors are responsible for their own tent, tables, displays, and supplies. The market does not provide equipment. Standard 10x10 pop-up canopy tents are the most common setup.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I share a booth with another vendor?</h3>
+            <p>Booth sharing is allowed with advance approval. Both vendors must be listed on the application and both product lines must meet market standards.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is electricity available at the booth?</h3>
+            <p>Electricity is not guaranteed at all venues. If you need power, contact us when applying to check availability at your preferred venue location.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What is the cancellation policy?</h3>
+            <p>Cancellations made more than 7 days before the event receive a credit toward a future market. Cancellations within 7 days are non-refundable. Weather cancellations are handled with full credits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Inline CTA -->
+    <section class="inline-cta" aria-labelledby="vendors-cta-heading">
+      <div class="container">
+        <h2 id="vendors-cta-heading">Ready to Bring Your Work to the Market?</h2>
+        <p>Applications are reviewed on a rolling basis. Space is limited each month, so apply early for your preferred date and venue.</p>
+        <div class="cta-row">
+          <a href="https://forms.gle/jWC4n2t4qfdfmTcC9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply to Vend</a>
+          <a href="../contact/" class="btn btn-outline">Ask a Question</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <p class="footer-logo-text">Move Mountains Artisan Market</p>
+            <p class="footer-tagline">Empowering local artisans. Austin &amp; Manor, TX.</p>
+          </div>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <div class="footer-nav-col">
+              <h4>Visit</h4>
+              <ul role="list">
+                <li><a href="../events/">Upcoming Events</a></li>
+                <li><a href="../events/">Venue Locations</a></li>
+                <li><a href="../about/">Our Story</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-col">
+              <h4>Vendors</h4>
+              <ul role="list">
+                <li><a href="../vendors/">Vendor Directory</a></li>
+                <li><a href="../vendors/">Apply to Vend</a></li>
+                <li><a href="../contact/">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-col">
+              <h4>Get Involved</h4>
+              <ul role="list">
+                <li><a href="../get-involved/">Overview</a></li>
+                <li><a href="../get-involved/musician/">Play Music</a></li>
+                <li><a href="../get-involved/volunteer/">Volunteer</a></li>
+                <li><a href="../get-involved/employment/">Careers</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="https://www.instagram.com/movemountainsmarket" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/MoveMountainsMarket" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@movemountainsmarket" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.01-8.12a8.14 8.14 0 004.77 1.52V5.26a4.85 4.85 0 01-1-.57z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Move Mountains Artisan Market. All rights reserved.</p>
+          <p>Austin &amp; Manor, TX &bull; Operating since 2022</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+  <!-- Aeopic Chatbot Widget -->
+  <script src="/js/chatbot-kb.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>
