@@ -6,6 +6,7 @@
 !.github/
 !README.md
 !CHANGELOG.md
+!DEPLOY.md
 !site/
 
 # Deny common junk anywhere
