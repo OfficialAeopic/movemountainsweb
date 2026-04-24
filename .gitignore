@@ -8,6 +8,7 @@
 !CHANGELOG.md
 !DEPLOY.md
 !site/
+!docs/
 
 # Deny common junk anywhere
 **/node_modules/
