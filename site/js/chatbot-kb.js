@@ -2467,6 +2467,11 @@ window.CHATBOT_KB = {
       ],
       "response": "Thanks for visiting! Feel free to come back anytime.",
       "chips": []
+    },
+    {
+      "patterns": ["wolf ranch", "georgetown", "fourth venue", "new venue"],
+      "response": "Wolf Ranch is our newest venue, located in Georgetown, TX. We are adding dates for Wolf Ranch to the schedule. Check the Events page or ask about specific dates for launch details.",
+      "chips": []
     }
   ]
 };

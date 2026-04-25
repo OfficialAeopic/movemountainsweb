@@ -5,6 +5,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## v2.3.0 - 2026-04-21
+
+### Added
+
+- **Wolf Ranch as fourth Austin-metro venue.** Georgetown, TX. Added to meta descriptions, lead copy, footer mentions, and vendor apply section across all 10 HTML pages. Chatbot knowledge base updated to answer Wolf Ranch questions. Event calendar entries for Wolf Ranch pending Amanda confirmation on dates, address, and hero image.
+- **Location-specific vendor application flow.** `/vendors/#apply` now renders a 4-card grid (Easton Park, Goodnight Ranch, Whisper Valley, Wolf Ranch), each linking to the Google Form with a `?venue=<name>` prefill query param. Replaces the single generic Apply button. Bottom CTA anchors to the venue selector instead of linking straight out.
+- **GA4 placeholder installed site-wide.** gtag snippet injected into `<head>` of every page with placeholder Measurement ID `G-XXXXXXXXXX`. Swap before public launch.
+- **Formspree wired on contact + newsletter forms.** Both `/contact/` forms now POST to `https://formspree.io/f/REPLACE_ME`. Placeholder endpoint. Justin creates the Formspree project and swaps the endpoint before launch.
+
+### Origin
+
+- CEO Sam Shahin Blueprint delivered 2026-04-21. Phase 1 scope closes gaps ahead of Amanda review.
+- Reconciled in docs/transcript-reconciliation.md under the Sam Blueprint Phase 1 table (rows B1 through B5).
+- Standing Order 22 satisfied for this ship.
+
+### Notes
+
+- Google Form venue prefill assumes the form accepts `?venue=` query param. Confirmation pending with Amanda.
+- GA4 Measurement ID and Formspree endpoint remain placeholders. Both must be swapped before the public launch.
+- Phase 2 items from Sam Blueprint (four individual location pages + hub, non-profit section, sponsor section, newsletter backend, Meta Pixel) are planned but not in this release. Estimated 8.5 hours, blocked on Facebook admin access for the Meta Pixel line item.
+
+---
+
 ## v2.2.0 - 2026-04-19
 
 ### Added

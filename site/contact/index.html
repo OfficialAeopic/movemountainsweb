@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- GA4 (placeholder, swap G-XXXXXXXXXX before launch) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-XXXXXXXXXX");
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Move Mountains Artisan Market</title>
   <meta name="description" content="Get in touch with Move Mountains Artisan Market. Vendor inquiries, general questions, and newsletter signup. Austin and Manor, TX.">
@@ -90,7 +99,7 @@
         <section class="contact-form-section" aria-labelledby="form-heading">
           <h2 id="form-heading">Send a Message</h2>
           <p class="form-intro">Response time is typically 2-3 business days. For urgent vendor questions, Instagram DM is faster.</p>
-          <form class="contact-form" aria-label="Contact form" novalidate>
+          <form class="contact-form" aria-label="Contact form" action="https://formspree.io/f/REPLACE_ME" method="POST" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -138,7 +147,9 @@
                 Goodnight Ranch<br>
                 Austin, TX<br><br>
                 Whisper Valley (Discovery Center)<br>
-                9400 Petrichor Blvd, Manor TX 78653
+                9400 Petrichor Blvd, Manor TX 78653<br><br>
+                Wolf Ranch (Launching Soon)<br>
+                Georgetown, TX
               </p>
             </div>
           </div>
@@ -158,7 +169,7 @@
             <span class="cii-icon" aria-hidden="true">&#128197;</span>
             <div>
               <p class="cii-label">Frequency</p>
-              <p class="cii-value">Three events per month, all three venues. Check the events page for exact dates.</p>
+              <p class="cii-value">Three events per month, all four venues. Check the events page for exact dates.</p>
             </div>
           </div>
 
@@ -209,7 +220,7 @@
             <h3 id="contact-newsletter-heading">Stay in the Loop</h3>
             <p>Monthly event dates, new vendor announcements, and behind-the-scenes market updates.</p>
           </div>
-          <form class="newsletter-form" aria-label="Newsletter signup">
+          <form class="newsletter-form" aria-label="Newsletter signup" action="https://formspree.io/f/REPLACE_ME" method="POST">
             <input type="email" placeholder="Your email address" aria-label="Email address" required>
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
