@@ -1,28 +1,47 @@
-# Whitelist approach: deny everything at root, then allow specific items.
-# Keeps business/internal docs local, only the website and its CHANGELOG ship to this repo.
+# Aeopic SO29 compliant
+# dependencies
+node_modules
+.pnp
+.pnp.js
 
-/*
-!.gitignore
-!.github/
-!README.md
-!CHANGELOG.md
-!DEPLOY.md
-!site/
-!docs/
+# testing
+coverage
 
-# Deny common junk anywhere
-**/node_modules/
-**/.next/
-**/dist/
-**/build/
-**/.cache/
-**/__pycache__/
-**/.DS_Store
-**/Thumbs.db
-**/*.log
-**/.env
-**/.env.*
-**/*.pem
-**/*.key
-**/credentials*
-**/secrets*
+# next.js
+.next
+out
+build
+dist
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files (NEVER commit secrets)
+.env
+.env*.local
+.env.local
+.env.development
+.env.production
+.env.test
+*.key
+*.pem
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# supabase
+supabase/.branches
+supabase/.temp
+
+# OS
+Thumbs.db
