@@ -22,15 +22,16 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
   const path = request.nextUrl.pathname;
 
-  // Protect /admin/*
+  // Protect /admin/* (the (admin) route group renders at /admin)
+  // Anonymous visitors get bounced to /login.
   if (path.startsWith("/admin") && path !== "/admin/login" && !user) {
     const url = request.nextUrl.clone();
-    url.pathname = "/admin/login";
+    url.pathname = "/login";
     return NextResponse.redirect(url);
   }
 
-  // If signed in and on login page, kick to dashboard
-  if (path === "/admin/login" && user) {
+  // If signed in and visiting /login, kick to /admin so they do not see the form.
+  if ((path === "/login" || path === "/admin/login") && user) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin";
     return NextResponse.redirect(url);
@@ -40,5 +41,8 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"]
+  matcher: [
+    // Match everything except static assets and image files.
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"
+  ]
 };
