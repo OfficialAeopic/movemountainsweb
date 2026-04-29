@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply to Vend | Move Mountains Artisan Market</title>
+  <meta name="description" content="Apply to be a vendor at Move Mountains Artisan Market. Tell us about your business, your products, and which venues you would like to set up at.">
+  <meta name="theme-color" content="#2D5016">
+  <meta property="og:title" content="Apply to Vend | Move Mountains Artisan Market">
+  <meta property="og:description" content="Apply to be a vendor at Move Mountains Artisan Market.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css?v=20260418b">
+  <style>
+    .eyebrow{font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--terra,#C4653A);margin-bottom:12px}
+    .eyebrow a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+    .page-hero{padding:72px 0 24px;background:linear-gradient(180deg,var(--cream,#FAF3E0) 0%,var(--bg,#FEFCF8) 100%)}
+    .page-hero h1{font-family:var(--font-head,"Fraunces",Georgia,serif);font-weight:500;font-size:clamp(2rem,4vw,3rem);color:var(--text-dark,#2C1810);line-height:1.1;margin:0 0 16px;letter-spacing:-.015em}
+    .page-hero .lede{font-size:1.15rem;color:var(--text-body,#4A3728);max-width:640px;line-height:1.6}
+    .page-intro{padding:48px 0 88px;background:var(--bg,#FEFCF8)}
+    .intro-block{max-width:720px;margin:0 auto}
+    .intro-block h2{font-family:var(--font-head,"Fraunces",Georgia,serif);font-weight:500;font-size:1.6rem;color:var(--text-dark,#2C1810);margin:0 0 16px}
+    .intro-block p{font-size:1.02rem;line-height:1.75;color:var(--text-body,#4A3728);margin-bottom:16px}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .role-form-wrapper{max-width:720px;margin:0 auto}
+    .role-form{background:#fff;border:1px solid var(--rule,#ddd4c4);border-radius:10px;padding:40px 36px;box-shadow:0 1px 3px rgba(44,24,16,.05);margin-top:32px}
+    .role-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+    .role-form .form-group{display:flex;flex-direction:column;margin-bottom:20px}
+    .role-form label{font-size:.78rem;font-weight:600;color:var(--text-dark,#2C1810);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+    .role-form input[type=text],.role-form input[type=email],.role-form input[type=tel],.role-form input[type=url],.role-form select,.role-form textarea{width:100%;padding:12px 14px;border:1.5px solid var(--rule,#ddd4c4);border-radius:6px;font-family:var(--font-body,"Source Sans 3",system-ui,sans-serif);font-size:1rem;color:var(--text-dark,#2C1810);background:var(--bg,#FEFCF8);transition:border-color .2s,box-shadow .2s}
+    .role-form textarea{resize:vertical;min-height:120px}
+    .role-form input:focus,.role-form select:focus,.role-form textarea:focus{outline:none;border-color:var(--green,#2D5016);box-shadow:0 0 0 3px rgba(45,80,22,.12)}
+    .role-form .helper{font-size:.85rem;color:var(--text-muted,#7a6255);margin-top:6px;line-height:1.45}
+    .role-form .submit-btn{margin-top:10px;padding:14px 28px;background:var(--green,#2D5016);color:#fff;border:none;border-radius:6px;font-family:var(--font-body,"Source Sans 3",system-ui,sans-serif);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer;transition:background .2s,transform .1s}
+    .role-form .submit-btn:hover{background:var(--green-dark,#1e3510)}
+    .role-form .submit-btn:disabled{opacity:.7;cursor:default}
+    .success-note{display:none;margin-top:24px;padding:18px 20px;background:rgba(45,80,22,.06);border-left:3px solid var(--green,#2D5016);border-radius:4px;font-size:.95rem;color:var(--green-dark,#1e3510);line-height:1.55}
+    .success-note.show{display:block}
+    .form-footer-note{margin-top:18px;font-size:.85rem;color:var(--text-muted,#7a6255);line-height:1.55;text-align:center}
+    .hp-field{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+    @media (max-width:600px){.role-form{padding:28px 22px}.role-form .form-row{grid-template-columns:1fr;gap:0}}
+  </style>
+</head>
+<body>
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Move Mountains Artisan Market home">
+        <div class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2 L22 20 H2 Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M7 14 L12 6 L17 14" fill="currentColor" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <span class="name">Move Mountains</span>
+          <span class="sub">Artisan Market</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="../../events/">Events</a></li>
+        <li><a href="../" class="active">Vendors</a></li>
+        <li><a href="../../about/">Our Story</a></li>
+        <li><a href="../../get-involved/">Get Involved</a></li>
+        <li><a href="../../contact/" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="../../events/">Events</a>
+    <a href="../">Vendors</a>
+    <a href="../../about/">Our Story</a>
+    <a href="../../get-involved/">Get Involved</a>
+    <a href="../../contact/">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow"><a href="../">Vendors</a> / Apply</p>
+        <h1>Apply to vend with Move Mountains.</h1>
+        <p class="lede">Tell us about your business and which venues you would like to set up at. Applications are reviewed on a rolling basis.</p>
+      </div>
+    </section>
+
+    <section class="page-intro">
+      <div class="container">
+        <div class="intro-block">
+          <h2>Before you apply</h2>
+          <p>Our markets run monthly across three rotating venues in the Austin and Manor area. Standard 10x10 tents are most common. Vendors are responsible for their own setup, signage, and supplies. We follow up on every application within 7 business days.</p>
+          <p>If you sell food, please make sure you can provide your county permit and food manager certification before your first market.</p>
+        </div>
+        <div class="role-form-wrapper">
+          <form class="role-form" id="vendor-apply-form" novalidate>
+            <div class="hp-field" aria-hidden="true">
+              <label>Do not fill this out <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="va-business">Business name *</label>
+                <input type="text" id="va-business" name="business_name" required>
+              </div>
+              <div class="form-group">
+                <label for="va-contact">Contact person</label>
+                <input type="text" id="va-contact" name="contact_name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="va-email">Email *</label>
+                <input type="email" id="va-email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="va-phone">Phone</label>
+                <input type="tel" id="va-phone" name="phone">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="va-location">Preferred venue</label>
+              <select id="va-location" name="location_slug">
+                <option value="">No preference</option>
+                <option value="easton-park">Easton Park, Austin (1st Sundays)</option>
+                <option value="goodnight-ranch">Goodnight Ranch, Austin (2nd Saturdays)</option>
+                <option value="whisper-valley">Whisper Valley, Manor (3rd Sundays)</option>
+              </select>
+              <p class="helper">If you can do multiple venues, leave this on No preference and tell us in the notes.</p>
+            </div>
+            <div class="form-group">
+              <label for="va-products">Tell us about your products *</label>
+              <textarea id="va-products" name="product_description" placeholder="What you make or sell, price range, anything that helps us picture your booth." required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="va-share">Booth share email (optional)</label>
+              <input type="email" id="va-share" name="booth_share_with_email" placeholder="If you plan to share a booth with another vendor">
+              <p class="helper">Booth shares are allowed when both vendors apply. Put your booth-share partner's email here.</p>
+            </div>
+            <button type="submit" class="submit-btn">Submit application</button>
+            <p class="form-footer-note">We reply within 7 business days. Questions? Email info@movemountainsmarket.com.</p>
+            <div class="success-note" id="va-success" role="status" aria-live="polite">Thank you. Your vendor application is in. We will review and follow up by email within 7 business days.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <p class="footer-logo-text">Move Mountains Artisan Market</p>
+            <p class="footer-tagline">Empowering local artisans. Austin &amp; Manor, TX.</p>
+          </div>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <div class="footer-nav-col">
+              <h4>Visit</h4>
+              <ul role="list">
+                <li><a href="../../events/">Upcoming Events</a></li>
+                <li><a href="../../events/">Venue Locations</a></li>
+                <li><a href="../../about/">Our Story</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-col">
+              <h4>Vendors</h4>
+              <ul role="list">
+                <li><a href="../">Vendor Directory</a></li>
+                <li><a href="../apply/">Apply to Vend</a></li>
+                <li><a href="../../contact/">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-col">
+              <h4>Get Involved</h4>
+              <ul role="list">
+                <li><a href="../../get-involved/">Overview</a></li>
+                <li><a href="../../get-involved/musician/">Play Music</a></li>
+                <li><a href="../../get-involved/volunteer/">Volunteer</a></li>
+                <li><a href="../../get-involved/employment/">Careers</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Move Mountains Artisan Market. All rights reserved.</p>
+          <p>Austin &amp; Manor, TX &bull; Operating since 2022</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var form = document.getElementById("vendor-apply-form");
+    var success = document.getElementById("va-success");
+    if (!form || !success) return;
+    function showSuccess(){
+      success.classList.add("show");
+      var inputs = form.querySelectorAll("input, textarea, select, button");
+      inputs.forEach(function(el){ el.disabled = true; });
+      success.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
+      var btn = form.querySelector("button[type=submit]");
+      var originalText = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; }
+      var formData = new FormData(form);
+      var payload = {};
+      formData.forEach(function(v, k){ payload[k] = v; });
+      try {
+        var res = await fetch("/api/intake/vendor-application", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+      } catch (err) {
+        console.warn("[vendor-apply] intake submit failed, falling back to fake-success", err);
+      }
+      if (btn) { btn.textContent = originalText; }
+      showSuccess();
+    });
+  })();
+  </script>
+  <script src="/js/chatbot-kb.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

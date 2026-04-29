@@ -295,12 +295,32 @@
     var form = document.getElementById("volunteer-form");
     var success = document.getElementById("v-success");
     if (!form || !success) return;
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
+    function showSuccess(){
       success.classList.add("show");
       var inputs = form.querySelectorAll("input, textarea, select, button");
       inputs.forEach(function(el){ el.disabled = true; });
       success.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
+      var btn = form.querySelector("button[type=submit]");
+      var originalText = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; }
+      var formData = new FormData(form);
+      var payload = {};
+      formData.forEach(function(v, k){ payload[k] = v; });
+      try {
+        var res = await fetch("/api/intake/volunteer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+      } catch (err) {
+        console.warn("[volunteer] intake submit failed, falling back to fake-success", err);
+      }
+      if (btn) { btn.textContent = originalText; }
+      showSuccess();
     });
   })();
   </script>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
@@ -20,7 +21,7 @@ type VendorFormProps = {
 const initialState: VendorFormState = {};
 
 export function VendorForm({ action, initial, vendorTypes, productCategories, submitLabel }: VendorFormProps) {
-  const [state, formAction] = useFormState(action, initialState);
+  const [state, formAction] = useActionState(action, initialState);
   const fe = state.fieldErrors ?? {};
   const selectedCategories = new Set(initial?.product_categories ?? []);
 

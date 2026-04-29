@@ -35,7 +35,7 @@ const manualAddSchema = z.object({
 
 // Hand-rolled CSV parser. Handles quoted fields, escaped quotes, commas, CRLF.
 // Returns rows of string arrays. Skips empty lines.
-export function parseCsv(input: string): string[][] {
+function parseCsv(input: string): string[][] {
   const rows: string[][] = [];
   let row: string[] = [];
   let field = "";

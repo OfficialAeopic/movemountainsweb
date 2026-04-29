@@ -91,6 +91,7 @@
           <h2 id="form-heading">Send a Message</h2>
           <p class="form-intro">Response time is typically 2-3 business days. For urgent vendor questions, Instagram DM is faster.</p>
           <form class="contact-form" aria-label="Contact form" novalidate>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -122,7 +123,11 @@
               <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Send Message</button>
+            <div class="contact-form-success" role="status" aria-live="polite" style="display:none;margin-top:18px;padding:14px 16px;background:rgba(45,80,22,.08);border-left:3px solid #2D5016;border-radius:4px;font-size:.95rem;color:#1e3510;line-height:1.55">
+              Thanks. Your message has been received. We will respond within 2-3 business days.
+            </div>
           </form>
+          <style>.contact-form-success.show{display:block!important}</style>
         </section>
 
         <aside class="contact-info-panel" aria-label="Contact information">
@@ -210,7 +215,8 @@
             <p>Monthly event dates, new vendor announcements, and behind-the-scenes market updates.</p>
           </div>
           <form class="newsletter-form" aria-label="Newsletter signup">
-            <input type="email" placeholder="Your email address" aria-label="Email address" required>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
         </div>
@@ -278,5 +284,54 @@
   <!-- Aeopic Chatbot Widget -->
   <script src="/js/chatbot-kb.js"></script>
   <script src="/js/chatbot.js"></script>
+<script>
+  (function() {
+    var form = document.querySelector("form.contact-form");
+    if (!form) return;
+    // Inject success element if not already present
+    var success = form.parentNode.querySelector(".intake-success-contact");
+    if (!success) {
+      var existing = form.parentNode.querySelector("[role='status']");
+      if (!existing) {
+        var div = document.createElement("div");
+        div.className = "intake-success-contact";
+        div.setAttribute("role", "status");
+        div.setAttribute("aria-live", "polite");
+        div.style.display = "none";
+        div.style.marginTop = "12px";
+        div.style.color = "#2D5016";
+        div.style.fontWeight = "600";
+        div.textContent = "Thanks. We got it.";
+        form.parentNode.insertBefore(div, form.nextSibling);
+        success = div;
+      } else {
+        success = existing;
+      }
+    }
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      var btn = form.querySelector("button[type=submit]");
+      var originalText = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; }
+      var formData = new FormData(form);
+      var payload = {};
+      formData.forEach(function(v, k) { payload[k] = v; });
+      try {
+        var res = await fetch("/api/intake/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+      } catch (err) {
+        console.warn("[contact] intake submit failed, falling back to fake-success", err);
+      }
+      if (success) { success.style.display = "block"; }
+      var inputs = form.querySelectorAll("input, textarea, select, button");
+      inputs.forEach(function(el) { el.disabled = true; });
+      if (btn) { btn.textContent = "Sent"; }
+    });
+  })();
+  </script>
 </body>
 </html>

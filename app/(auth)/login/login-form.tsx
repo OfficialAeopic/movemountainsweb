@@ -1,12 +1,13 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { signInAction, type LoginFormState } from "./actions";
 
 const initialState: LoginFormState = { status: "idle" };
 
 export function LoginForm({ initialError }: { initialError: string | null }) {
-  const [state, formAction] = useFormState(signInAction, initialState);
+  const [state, formAction] = useActionState(signInAction, initialState);
   const errorMessage = state.status === "error" ? state.message : initialError;
 
   return (

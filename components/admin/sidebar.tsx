@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, MapPin, Calendar, Users, ClipboardList, DollarSign, MessageSquare, Mail, Map, BarChart3, Settings } from "lucide-react";
+import { LayoutDashboard, MapPin, Calendar, Users, ClipboardList, DollarSign, MessageSquare, Mail, Map, BarChart3, Settings, HeartHandshake, Music, Briefcase, Inbox } from "lucide-react";
 
 type Item = { href: string; label: string; icon: any };
 const items: Item[] = [
@@ -11,9 +11,13 @@ const items: Item[] = [
   { href: "/admin/events", label: "Events", icon: Calendar },
   { href: "/admin/vendors", label: "Vendors", icon: Users },
   { href: "/admin/applications", label: "Applications", icon: ClipboardList },
+  { href: "/admin/volunteers", label: "Volunteers", icon: HeartHandshake },
+  { href: "/admin/musicians", label: "Musicians", icon: Music },
+  { href: "/admin/employment", label: "Employment", icon: Briefcase },
   { href: "/admin/payments", label: "Payments", icon: DollarSign },
   { href: "/admin/communications", label: "Communications", icon: MessageSquare },
   { href: "/admin/email-lists", label: "Email Lists", icon: Mail },
+  { href: "/admin/contact-messages", label: "Contact Messages", icon: Inbox },
   { href: "/admin/maps", label: "Booth Maps", icon: Map },
   { href: "/admin/reports", label: "Reports", icon: BarChart3 },
   { href: "/admin/settings", label: "Settings", icon: Settings }

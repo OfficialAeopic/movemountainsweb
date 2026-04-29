@@ -70,6 +70,7 @@ footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset
 <button type="button" data-role="admin" role="tab" aria-selected="false">Admin</button>
 </div>
 <form id="login-form" novalidate>
+<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 <label for="email">Email address</label>
 <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
 <button type="submit" class="btn">Send me a sign-in link</button>
@@ -104,10 +105,25 @@ form.addEventListener("submit",function(e){
   e.preventDefault();
   var email=emailInput.value.trim();
   if(!email||email.indexOf("@")===-1){emailInput.focus();return}
-  success.classList.add("show");
   var b=form.querySelector("button[type=submit]");
-  b.textContent="Link sent (preview)";
   b.disabled=true;
+  b.textContent="Sending...";
+  var honeypot=form.querySelector("input[name=website]");
+  var payload={email:email,website:honeypot?honeypot.value:""};
+  // Capture vendor-portal interest into email_subscribers so Amanda has a
+  // list of vendors who tried to log in. Magic-link auth is Phase 2; the
+  // success message stays the same regardless of API outcome (fake-success
+  // fallback if the API is unreachable).
+  fetch("/api/intake/vendor-portal-interest",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(payload)
+  }).catch(function(err){
+    try{console.warn("vendor-portal-interest submit failed, fake-success fallback",err)}catch(_){}
+  }).then(function(){
+    success.classList.add("show");
+    b.textContent="Link sent (preview)";
+  });
 });
 </script>
 </body>

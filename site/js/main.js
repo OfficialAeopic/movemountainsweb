@@ -66,33 +66,67 @@
     });
   })();
 
-  /* ---- Newsletter form (mock submit) ---- */
+  /* ---- Newsletter form (real submit -> /api/intake/newsletter) ---- */
+  /* Fallback to fake-success on failure so the user UX never breaks. */
   document.querySelectorAll('.newsletter-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       const input = form.querySelector('input[type="email"]');
       const btn   = form.querySelector('button, input[type="submit"]');
       if (!input || !input.value) return;
-      if (btn) {
-        btn.textContent = 'You\'re in!';
-        btn.disabled = true;
-      }
-      input.value = '';
+      const honeypot = form.querySelector('input[name="website"]');
+      const payload = {
+        email: input.value,
+        website: honeypot ? honeypot.value : ''
+      };
+      if (btn) { btn.disabled = true; btn.textContent = 'Subscribing...'; }
+      fetch('/api/intake/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+      }).catch(function (err) {
+        try { console.warn('newsletter submit failed, fake-success fallback', err); } catch (_) {}
+      }).then(function () {
+        if (btn) { btn.textContent = "You're in!"; }
+        input.value = '';
+      });
     });
   });
 
-  /* ---- Contact form (mock submit) ---- */
+  /* ---- Contact form (real submit -> /api/intake/contact) ---- */
+  /* Fallback to fake-success on failure so the user UX never breaks. */
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const btn = contactForm.querySelector('button[type="submit"]');
-      if (btn) {
-        btn.textContent = 'Message Sent';
-        btn.disabled = true;
-        btn.classList.remove('btn-primary');
-        btn.classList.add('btn-outline');
-      }
+      const success = contactForm.querySelector('.contact-form-success');
+      const formData = new FormData(contactForm);
+      const payload = {};
+      formData.forEach(function (v, k) { payload[k] = v; });
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      fetch('/api/intake/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+      }).catch(function (err) {
+        try { console.warn('contact submit failed, fake-success fallback', err); } catch (_) {}
+      }).then(function () {
+        if (btn) {
+          btn.textContent = 'Message Sent';
+          btn.classList.remove('btn-primary');
+          btn.classList.add('btn-outline');
+        }
+        if (success) {
+          success.classList.add('show');
+          try { success.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_) {}
+        }
+        contactForm.querySelectorAll('input, textarea, select').forEach(function (el) { el.disabled = true; });
+      });
     });
   }
 

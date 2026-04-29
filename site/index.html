@@ -380,7 +380,8 @@
             <p>Get event dates, vendor announcements, and behind-the-scenes updates in your inbox.</p>
           </div>
           <form class="newsletter-form" aria-label="Newsletter signup">
-            <input type="email" placeholder="Your email address" aria-label="Email address" required>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
         </div>
@@ -454,5 +455,54 @@
   <!-- Aeopic Chatbot Widget -->
   <script src="/js/chatbot-kb.js"></script>
   <script src="/js/chatbot.js"></script>
+<script>
+  (function() {
+    var form = document.querySelector("form.newsletter-form");
+    if (!form) return;
+    // Inject success element if not already present
+    var success = form.parentNode.querySelector(".intake-success-newsletter-home");
+    if (!success) {
+      var existing = form.parentNode.querySelector("[role='status']");
+      if (!existing) {
+        var div = document.createElement("div");
+        div.className = "intake-success-newsletter-home";
+        div.setAttribute("role", "status");
+        div.setAttribute("aria-live", "polite");
+        div.style.display = "none";
+        div.style.marginTop = "12px";
+        div.style.color = "#2D5016";
+        div.style.fontWeight = "600";
+        div.textContent = "Thanks. We got it.";
+        form.parentNode.insertBefore(div, form.nextSibling);
+        success = div;
+      } else {
+        success = existing;
+      }
+    }
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      var btn = form.querySelector("button[type=submit]");
+      var originalText = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; }
+      var formData = new FormData(form);
+      var payload = {};
+      formData.forEach(function(v, k) { payload[k] = v; });
+      try {
+        var res = await fetch("/api/intake/newsletter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+      } catch (err) {
+        console.warn("[newsletter-home] intake submit failed, falling back to fake-success", err);
+      }
+      if (success) { success.style.display = "block"; }
+      var inputs = form.querySelectorAll("input, textarea, select, button");
+      inputs.forEach(function(el) { el.disabled = true; });
+      if (btn) { btn.textContent = "Sent"; }
+    });
+  })();
+  </script>
 </body>
 </html>

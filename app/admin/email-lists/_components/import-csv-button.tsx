@@ -4,7 +4,8 @@
 // Uploads a file via FormData to the importCsv server action and renders the result counts.
 
 import { useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { importCsv, type ImportState } from "../actions";
 
@@ -14,7 +15,7 @@ type LocationOption = { id: string; name: string };
 
 export function ImportCsvButton({ locations }: { locations: LocationOption[] }) {
   const [open, setOpen] = useState(false);
-  const [state, formAction] = useFormState(importCsv, initial);
+  const [state, formAction] = useActionState(importCsv, initial);
 
   return (
     <>
