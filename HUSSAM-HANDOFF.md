@@ -14,6 +14,35 @@
 - RLS policies enabled
 - Admin user `admin@aeopic.com` created in Supabase Auth, granted `admin` role
 
+
+
+## Deployment architecture (OPEN QUESTION for Hussam, not yet decided)
+
+The current state:
+
+- The static marketing site is already deployed at https://movemountainsweb.vercel.app (Vercel project pointed at Root Directory = `site/`, framework "Other"). This was set up well before the CRM work and is what Amanda's customers would visit.
+- The Next.js CRM app at the repo root has never been deployed. The 16 admin routes and 7 `/api/intake/*` endpoints work locally but are not reachable from the internet.
+- The 8 forms in `/site/` POST to `/api/intake/*` as relative URLs. In production today they hit movemountainsweb.vercel.app/api/intake/* and get **404** because that Vercel project doesn't run a Next.js app.
+
+Three paths to fix this. Theron deferred to you on which to take because the spec says don't touch `/site/`:
+
+**Path A: Single Vercel project, restructure**
+Reconfigure the existing project: Root Directory `/`, Framework Next.js, copy `/site/*.html` into `/public/*`. Single domain. Forms work via relative URLs.
+- Pro: cleanest, one URL, simplest ops.
+- Con: deviates from "preserve /site/ untouched" since files would be duplicated/moved into `/public/`.
+
+**Path B: Two Vercel projects, same repo**
+Keep the existing project as-is. Create a second Vercel project from the same repo with Root Directory `/` and Framework Next.js. Static stays at movemountainsweb.vercel.app, CRM lives at a different URL like movemountainsweb-crm.vercel.app. Update the 8 form fetch URLs to use the absolute CRM URL. Add CORS allow on the Next.js app.
+- Pro: literal compliance with "don't touch /site/", existing deployment stays untouched.
+- Con: two URLs, two configs, CORS layer, slightly more operational complexity.
+
+**Path C: Defer the public-form integration**
+Treat the CRM as internal Aeopic tooling only. Public-facing forms remain disconnected. Aeopic staff log into the CRM at a private URL.
+- Pro: zero risk, ships immediately as internal tool.
+- Con: the public intake bridges we just built do not capture leads in production.
+
+**Question for you:** Which path do you want to take? Theron has not deployed anything new while waiting for your call.
+
 ## What you need from Theron (separately, in private channel)
 
 1. Supabase admin password for `admin@aeopic.com`
