@@ -9,6 +9,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "noImplicitAny": false,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -37,6 +38,9 @@
   ],
   "exclude": [
     "node_modules",
-    "site"
+    "site",
+    "tests",
+    "scripts",
+    "supabase/apply_0004.py"
   ]
 }

@@ -45,3 +45,7 @@ supabase/.temp
 
 # OS
 Thumbs.db
+
+# Client PII data intake (SO29). Vendor rosters, customer emails, dry-run reports.
+data/intake/
+*.numbers

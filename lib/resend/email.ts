@@ -57,17 +57,17 @@ export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult>
       subject: input.subject,
       html: input.html,
     };
-    if (input.text) (payload as Record<string, unknown>).text = input.text;
-    if (input.replyTo) (payload as Record<string, unknown>).replyTo = input.replyTo;
+    if (input.text) (payload as unknown as Record<string, unknown>).text = input.text;
+    if (input.replyTo) (payload as unknown as Record<string, unknown>).replyTo = input.replyTo;
     if (input.attachments && input.attachments.length > 0) {
-      (payload as Record<string, unknown>).attachments = input.attachments.map((a) => ({
+      (payload as unknown as Record<string, unknown>).attachments = input.attachments.map((a) => ({
         filename: a.filename,
         content: a.content,
         contentType: a.contentType,
       }));
     }
     if (input.tags && input.tags.length > 0) {
-      (payload as Record<string, unknown>).tags = input.tags;
+      (payload as unknown as Record<string, unknown>).tags = input.tags;
     }
 
     const res = await client.emails.send(payload);

@@ -124,7 +124,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
     tracker.inc("events_with_warnings");
 
-    const filtered = [];
+    const filtered: typeof hot = [];
     for (const h of hot) {
       const dedupeKey = {
         action: "category_cap_warning_sent",

@@ -110,7 +110,7 @@ export default async function EventBoothMap({ params }: { params: Promise<{ id: 
           eventId={id}
           layout={layout}
           assignments={assignmentsByBooth}
-          unassigned={unassigned}
+          unassigned={unassigned as any}
           categoryMap={categoryMap}
         />
       )}

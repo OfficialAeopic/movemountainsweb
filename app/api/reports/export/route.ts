@@ -8,7 +8,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getServerSession } from "@/lib/supabase/auth";
-import { resolveRange, toCsv, groupBy, sumNumeric, monthKey } from "@/app/(admin)/reports/_lib";
+import { resolveRange, toCsv, groupBy, sumNumeric, monthKey } from "@/app/admin/reports/_lib";
 
 export const dynamic = "force-dynamic";
 

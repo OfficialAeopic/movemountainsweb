@@ -36,7 +36,7 @@ export default async function UsersTab({ searchParams }: { searchParams: Search 
     try {
       const admin = createAdminClient();
       const { data: page } = await admin.auth.admin.listUsers({ page: 1, perPage: 200 });
-      const byId = new Map((page?.users ?? []).map((u) => [u.id, u]));
+      const byId = new Map((page?.users ?? []).map((u) => [u.id, u] as const));
       for (const r of roleRows ?? []) {
         const u = byId.get((r as any).user_id);
         users.push({
