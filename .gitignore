@@ -54,7 +54,7 @@ data/intake/
 scripts/
 
 # Supabase migration runner with hardcoded PAT/project ref - never commit secrets
-supabase/apply_0004.py
+# (former apply_0004.py block removed - file is now env-var only, safe to track)
 
 # Call recordings - client audio/video/transcripts, PII risk
 call-recordings/
