@@ -1,0 +1,30 @@
+# Vercel CLI deploy ignore list - mirrors .gitignore for the upload step
+node_modules
+.next
+out
+dist
+.git
+.env*
+!.env.example
+*.log
+.DS_Store
+coverage
+tmp
+temp
+__pycache__
+*.pyc
+.venv
+venv
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.turbo
+.cache
+.vscode
+.idea
+
+# Call recordings (PII, never upload, never commit)
+call-recordings/
+*.wav
+*.mp3
+*.m4a
