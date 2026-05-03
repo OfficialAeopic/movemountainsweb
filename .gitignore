@@ -49,3 +49,21 @@ Thumbs.db
 # Client PII data intake (SO29). Vendor rosters, customer emails, dry-run reports.
 data/intake/
 *.numbers
+
+# Scope-blocked data import pipeline (Sam scope-guard RED 2026-04-30)
+scripts/
+
+# Supabase migration runner with hardcoded PAT/project ref - never commit secrets
+supabase/apply_0004.py
+
+# Call recordings - client audio/video/transcripts, PII risk
+call-recordings/
+
+# Higgsfield generation state files - machine-local ephemera
+generation-progress.json
+generation-urls.json
+
+# Project ops docs that live in the client folder, not the app repo
+account-access.md
+IMAGE_PROMPTS.md
+patch_site_v2.py
