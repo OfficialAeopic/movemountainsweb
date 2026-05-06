@@ -261,6 +261,9 @@
             <label class="checkbox-row"><input type="checkbox" name="outdoors" value="1"> <span>I am comfortable working outdoors in heat, wind, and occasional rain.</span></label>
             <label class="checkbox-row"><input type="checkbox" name="license" value="1"> <span>I have a valid driver's license and reliable transportation.</span></label>
           </div>
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <input type="text" name="honeypot" tabindex="-1" autocomplete="off">
+          </div>
           <button type="submit" class="submit-btn">Send my application</button>
           <p class="form-footer-note">Your information stays with Move Mountains Artisan Market. We do not share applicant data with vendors or partners.</p>
           <div class="success-note" id="e-success" role="status" aria-live="polite">Thank you for applying. Your application has been received. Qualified candidates will be contacted within two weeks.</div>
@@ -340,10 +343,30 @@
     if (form && success) {
       form.addEventListener("submit", function(e){
         e.preventDefault();
-        success.classList.add("show");
-        var inputs = form.querySelectorAll("input, textarea, select, button");
-        inputs.forEach(function(el){ el.disabled = true; });
-        success.scrollIntoView({behavior:"smooth", block:"center"});
+        if (!form.reportValidity()) return;
+        var btn = form.querySelector("button[type=submit]");
+        if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+        success.classList.remove("show");
+        fetch("/api/forms/employment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+        }).then(function(res){
+          return res.json().then(function(data){ return { ok: res.ok, data: data }; });
+        }).then(function(result){
+          if (!result.ok) throw new Error(result.data.error || "Something went wrong. Please try again.");
+          success.textContent = "Thank you for applying. Your application has been received. Qualified candidates will be contacted within two weeks.";
+          success.classList.add("show");
+          var inputs = form.querySelectorAll("input, textarea, select");
+          inputs.forEach(function(el){ el.disabled = true; });
+          if (btn) { btn.disabled = true; btn.textContent = "Application submitted"; }
+          success.scrollIntoView({behavior:"smooth", block:"center"});
+        }).catch(function(err){
+          success.textContent = err.message || "Something went wrong. Please try again.";
+          success.classList.add("show");
+          if (btn) { btn.disabled = false; btn.textContent = "Send my application"; }
+          success.scrollIntoView({behavior:"smooth", block:"center"});
+        });
       });
     }
   })();

@@ -227,6 +227,9 @@
             <div class="checkbox-group">
               <label class="checkbox-row"><input type="checkbox" id="v-waiver" name="waiver" required> <span>I understand this is an outdoor event and I accept normal weather and physical conditions. *</span></label>
             </div>
+            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+              <input type="text" name="honeypot" tabindex="-1" autocomplete="off">
+            </div>
             <button type="submit" class="submit-btn">Sign me up to help</button>
             <p class="form-footer-note">We will email you a week before the next market with shift options that match your availability.</p>
             <div class="success-note" id="v-success" role="status" aria-live="polite">Thank you for stepping up. We will be in touch before the next market day with your shift options.</div>
@@ -297,10 +300,30 @@
     if (!form || !success) return;
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      success.classList.add("show");
-      var inputs = form.querySelectorAll("input, textarea, select, button");
-      inputs.forEach(function(el){ el.disabled = true; });
-      success.scrollIntoView({behavior:"smooth", block:"center"});
+      if (!form.reportValidity()) return;
+      var btn = form.querySelector("button[type=submit]");
+      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+      success.classList.remove("show");
+      fetch("/api/forms/volunteer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+      }).then(function(res){
+        return res.json().then(function(data){ return { ok: res.ok, data: data }; });
+      }).then(function(result){
+        if (!result.ok) throw new Error(result.data.error || "Something went wrong. Please try again.");
+        success.textContent = "Thank you for stepping up. We will be in touch before the next market day with your shift options.";
+        success.classList.add("show");
+        var inputs = form.querySelectorAll("input, textarea, select");
+        inputs.forEach(function(el){ el.disabled = true; });
+        if (btn) { btn.disabled = true; btn.textContent = "Signup submitted"; }
+        success.scrollIntoView({behavior:"smooth", block:"center"});
+      }).catch(function(err){
+        success.textContent = err.message || "Something went wrong. Please try again.";
+        success.classList.add("show");
+        if (btn) { btn.disabled = false; btn.textContent = "Sign me up to help"; }
+        success.scrollIntoView({behavior:"smooth", block:"center"});
+      });
     });
   })();
   </script>

@@ -226,6 +226,9 @@
               <label class="checkbox-row"><input type="checkbox" id="m-outdoor" name="outdoor"> <span>I am comfortable playing outdoors in Texas weather.</span></label>
               <label class="checkbox-row"><input type="checkbox" id="m-family" name="family-ok"> <span>All of my material is family-friendly.</span></label>
             </div>
+            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+              <input type="text" name="honeypot" tabindex="-1" autocomplete="off">
+            </div>
             <button type="submit" class="submit-btn">Submit application</button>
             <p class="form-footer-note">We respond to every application, usually within 7 business days.</p>
             <div class="success-note" id="m-success" role="status" aria-live="polite">Thank you. Your application is in. We will listen to your music and follow up by email within a week.</div>
@@ -297,12 +300,30 @@
     if (!form || !success) return;
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      success.classList.add("show");
+      if (!form.reportValidity()) return;
       var btn = form.querySelector("button[type=submit]");
-      if (btn) { btn.disabled = true; btn.textContent = "Application submitted"; }
-      var inputs = form.querySelectorAll("input, textarea, select");
-      inputs.forEach(function(inp){ inp.disabled = true; });
-      success.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+      success.classList.remove("show");
+      fetch("/api/forms/musician", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+      }).then(function(res){
+        return res.json().then(function(data){ return { ok: res.ok, data: data }; });
+      }).then(function(result){
+        if (!result.ok) throw new Error(result.data.error || "Something went wrong. Please try again.");
+        success.textContent = "Thank you. Your application is in. We will listen to your music and follow up by email within a week.";
+        success.classList.add("show");
+        var inputs = form.querySelectorAll("input, textarea, select");
+        inputs.forEach(function(inp){ inp.disabled = true; });
+        if (btn) { btn.disabled = true; btn.textContent = "Application submitted"; }
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      }).catch(function(err){
+        success.textContent = err.message || "Something went wrong. Please try again.";
+        success.classList.add("show");
+        if (btn) { btn.disabled = false; btn.textContent = "Submit application"; }
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
     });
   })();
   </script>
