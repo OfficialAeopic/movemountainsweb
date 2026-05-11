@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Move Mountains Artisan Market</title>
-  <meta name="description" content="Get in touch with Move Mountains Artisan Market. Vendor inquiries, general questions, and newsletter signup. Austin and Manor, TX.">
+  <meta name="description" content="Get in touch with Move Mountains Artisan Market. Vendor inquiries, general questions, and newsletter signup. Austin, Georgetown, and Manor, TX.">
   <meta name="theme-color" content="#2D5016">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,8 +135,10 @@
               <p class="cii-value">
                 Easton Park (Skyline Park)<br>
                 7604 Solari Dr, Austin TX 78744<br><br>
+                Wolf Ranch (Community Pavilion)<br>
+                101 River Overlook Rd, Georgetown TX 78628<br><br>
                 Goodnight Ranch<br>
-                Austin, TX<br><br>
+                5601 Baythorne Drive, Austin TX<br><br>
                 Whisper Valley (Discovery Center)<br>
                 9400 Petrichor Blvd, Manor TX 78653
               </p>
@@ -148,8 +150,9 @@
             <div>
               <p class="cii-label">Market Hours</p>
               <p class="cii-value">
-                Standard season: 11:00 AM &ndash; 3:00 PM<br>
-                Summer season: 10:00 AM &ndash; 2:00 PM
+                Daytime markets, standard: 11:00 AM &ndash; 3:00 PM<br>
+                Daytime markets, summer: 10:00 AM &ndash; 2:00 PM<br>
+                Wolf Ranch evening market: 5:30 PM &ndash; 8:30 PM
               </p>
             </div>
           </div>
@@ -158,7 +161,17 @@
             <span class="cii-icon" aria-hidden="true">&#128197;</span>
             <div>
               <p class="cii-label">Frequency</p>
-              <p class="cii-value">Three events per month, all three venues. Check the events page for exact dates.</p>
+              <p class="cii-value">Four events per month, all four venues. Check the events page for exact dates.</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <span class="cii-icon" aria-hidden="true">&#9993;</span>
+            <div>
+              <p class="cii-label">Email</p>
+              <p class="cii-value">
+                <a href="mailto:movemountainsmarket@gmail.com">movemountainsmarket@gmail.com</a>
+              </p>
             </div>
           </div>
 
@@ -168,6 +181,7 @@
               <p class="cii-label">Best Contact Method</p>
               <p class="cii-value">
                 <a href="https://www.instagram.com/movemountainsmarket" target="_blank" rel="noopener noreferrer">Instagram DM @movemountainsmarket</a><br>
+                or email <a href="mailto:movemountainsmarket@gmail.com">movemountainsmarket@gmail.com</a><br>
                 or use the form on this page.
               </p>
             </div>
@@ -224,7 +238,7 @@
         <div class="footer-top">
           <div class="footer-brand">
             <p class="footer-logo-text">Move Mountains Artisan Market</p>
-            <p class="footer-tagline">Empowering local artisans. Austin &amp; Manor, TX.</p>
+            <p class="footer-tagline">Empowering local artisans. Austin, Georgetown &amp; Manor, TX.</p>
           </div>
           <nav class="footer-nav" aria-label="Footer navigation">
             <div class="footer-nav-col">
@@ -267,7 +281,7 @@
         </div>
         <div class="footer-bottom">
           <p>&copy; 2026 Move Mountains Artisan Market. All rights reserved.</p>
-          <p>Austin &amp; Manor, TX &bull; Operating since 2022</p>
+          <p>Austin, Georgetown &amp; Manor, TX &bull; Operating since 2022</p>
         </div>
       </div>
     </div>
@@ -278,5 +292,74 @@
   <!-- Aeopic Chatbot Widget -->
   <script src="/js/chatbot-kb.js"></script>
   <script src="/js/chatbot.js"></script>
+<script>
+  (function() {
+    var form = document.querySelector("form.contact-form");
+    if (!form) return;
+    // Inject success element if not already present
+    var success = form.parentNode.querySelector(".intake-success-contact");
+    if (!success) {
+      var existing = form.parentNode.querySelector("[role='status']");
+      if (!existing) {
+        var div = document.createElement("div");
+        div.className = "intake-success-contact";
+        div.setAttribute("role", "status");
+        div.setAttribute("aria-live", "polite");
+        div.style.display = "none";
+        div.style.marginTop = "12px";
+        div.style.color = "#2D5016";
+        div.style.fontWeight = "600";
+        div.textContent = "Thanks. We got it.";
+        form.parentNode.insertBefore(div, form.nextSibling);
+        success = div;
+      } else {
+        success = existing;
+      }
+    }
+    // TODO: swap to Formspree (or similar) once Amanda confirms an endpoint. For now,
+    // we open the user's mail client with a prefilled message to movemountainsmarket@gmail.com
+    // so submissions are never silently lost.
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      var data = {};
+      var fd = new FormData(form);
+      fd.forEach(function(v, k) { data[k] = v; });
+      var first = data.first_name || "";
+      var last = data.last_name || "";
+      var email = data.email || "";
+      var inquiry = data.inquiry_type || "general";
+      var message = data.message || "";
+      var subjectLabel = "[" + inquiry + "] Website inquiry from " + (first + " " + last).trim();
+      var bodyText =
+        "Name: " + (first + " " + last).trim() + "\n" +
+        "Email: " + email + "\n" +
+        "Inquiry type: " + inquiry + "\n\n" +
+        "Message:\n" + message;
+      var subject = encodeURIComponent(subjectLabel);
+      var body = encodeURIComponent(bodyText);
+      window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" + subject + "&body=" + body;
+      if (success) { success.style.display = "block"; }
+      var btn = form.querySelector("button[type=submit]");
+      if (btn) { btn.textContent = "Sent"; btn.disabled = true; }
+    });
+  })();
+
+  // Newsletter form on contact page: mailto fallback.
+  // TODO: replace with Formspree/Mailchimp/ConvertKit when Amanda confirms.
+  (function() {
+    var nlForm = document.querySelector("form.newsletter-form");
+    if (!nlForm) return;
+    nlForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      var emailInput = nlForm.querySelector("input[type=email]");
+      var addr = emailInput && emailInput.value ? emailInput.value : "";
+      var subject = encodeURIComponent("Newsletter signup from " + (addr || "the website"));
+      var body = encodeURIComponent("Please add this email to the Move Mountains newsletter list:\n\n" + addr);
+      window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" + subject + "&body=" + body;
+      var btn = nlForm.querySelector("button[type=submit]");
+      if (btn) { btn.textContent = "Sent"; btn.disabled = true; }
+    });
+  })();
+  </script>
 </body>
 </html>

@@ -1386,3 +1386,122 @@ hr {
   .categories-grid { grid-template-columns: 1fr; }
   .intro-cta-row .btn { width: 100%; text-align: center; }
 }
+
+/* ============================================================
+   MUSICIAN SPOTLIGHT (Live at the Market)
+   ============================================================ */
+.musician-section {
+  padding: var(--pad-v) 0;
+  background: var(--cream);
+}
+
+.musician-section h2 {
+  margin-bottom: 12px;
+}
+
+.musician-intro {
+  color: var(--text-body);
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.musician-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.musician-card {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 28px 24px;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.musician-card:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 18px rgba(44, 24, 16, 0.06);
+  transform: translateY(-2px);
+}
+
+.musician-card h3 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.musician-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid var(--green);
+  padding-bottom: 1px;
+  margin-bottom: 14px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  word-break: break-word;
+}
+
+.musician-link:hover {
+  color: var(--terra);
+  border-color: var(--terra);
+}
+
+.musician-meta {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.musician-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.musician-cta p {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .musician-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .musician-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   NON-PROFIT + SPONSOR SECTIONS
+   ============================================================ */
+.nonprofit-section,
+.sponsor-section {
+  padding: var(--pad-v) 0;
+}
+
+.nonprofit-section h2,
+.sponsor-section h2 {
+  margin-bottom: 16px;
+}
+
+.nonprofit-section p,
+.sponsor-section p {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.75;
+}
+

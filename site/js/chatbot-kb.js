@@ -197,7 +197,7 @@ window.CHATBOT_KB = {
         "whats next",
         "whens the next"
       ],
-      "response": "Move Mountains runs three markets a month. First Sunday at Easton Park, second Saturday at Goodnight Ranch, third Sunday at Whisper Valley. See the <a href=\"/events/\">events page</a> for exact dates and current hours.",
+      "response": "Move Mountains runs four markets a month. First Sunday at Easton Park, first Thursday evening at Wolf Ranch in Georgetown, second Sunday at Goodnight Ranch, third Sunday at Whisper Valley. See the <a href=\"/events/\">events page</a> for exact dates and current hours.",
       "chips": [
         "Venues",
         "Hours",
@@ -379,7 +379,7 @@ window.CHATBOT_KB = {
         "neighborhoods",
         "check"
       ],
-      "response": "Move Mountains runs monthly across three Austin-metro neighborhoods. Check the events page for exact upcoming dates. 1st Sunday Monthly",
+      "response": "Move Mountains runs monthly across four Austin-metro neighborhoods. Check the events page for exact upcoming dates. 1st Sunday Monthly",
       "chips": []
     },
     {
@@ -482,7 +482,7 @@ window.CHATBOT_KB = {
         "belief",
         "local"
       ],
-      "response": "Move Mountains Artisan Market started with a simple belief: local makers deserve a platform,\n            and neighbors deserve a reason to come together. Since 2022, that belief has grown into a\n            three-venue monthly market series across Austin and Manor, TX. How It Started <a href=\"/about/\">Learn more</a>",
+      "response": "Move Mountains Artisan Market started with a simple belief: local makers deserve a platform,\n            and neighbors deserve a reason to come together. Since 2022, that belief has grown into a\n            four-venue monthly market series across Austin, Georgetown, and Manor, TX. How It Started <a href=\"/about/\">Learn more</a>",
       "chips": []
     },
     {
@@ -729,7 +729,7 @@ window.CHATBOT_KB = {
         "austin",
         "manor"
       ],
-      "response": "Move Mountains runs three markets every month across Austin and Manor, TX. Each event is\n            11am–3pm standard (10am–2pm summer). No tickets, no admission. Just show up. <a href=\"/events/\">Learn more</a>",
+      "response": "Move Mountains runs four markets every month across Austin, Georgetown, and Manor, TX. Daytime markets run 11am to 3pm standard (10am to 2pm summer). The Wolf Ranch evening market runs 5:30pm to 8:30pm. No tickets, no admission. Just show up. <a href=\"/events/\">Learn more</a>",
       "chips": []
     },
     {
@@ -1694,7 +1694,7 @@ window.CHATBOT_KB = {
         "who started",
         "founder"
       ],
-      "response": "The market is organized by Amanda, who founded it in 2022 as a way to celebrate local makers in the Austin and Manor community. She still personally vets every vendor application and shows up at every market.",
+      "response": "The market is organized by Amanda, who founded it in 2022 as a way to celebrate local makers in the Austin, Georgetown, and Manor community. She still personally vets every vendor application and shows up at every market.",
       "chips": [
         "Mission",
         "Vendors",
@@ -2293,7 +2293,7 @@ window.CHATBOT_KB = {
         "inside or outside",
         "open air"
       ],
-      "response": "All three markets are outdoor. Easton Park and Whisper Valley are open-air community greens, Goodnight Ranch is an outdoor event area. In rain we deploy with tents, in summer heat we shift to the 10 AM - 2 PM schedule.",
+      "response": "All four markets are outdoor. Easton Park and Whisper Valley are open-air community greens, Goodnight Ranch is an outdoor event area, and Wolf Ranch sits at the Community Pavilion in Georgetown. In rain we deploy with tents, in summer heat we shift to the 10 AM - 2 PM schedule. The Wolf Ranch evening market runs 5:30 PM to 8:30 PM.",
       "chips": [
         "Rain policy",
         "Hours",
