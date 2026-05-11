@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- GA4 (placeholder, swap G-XXXXXXXXXX before launch) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-XXXXXXXXXX");
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vendors &amp; Apply to Vend | Move Mountains Artisan Market</title>
   <meta name="description" content="Join Move Mountains Artisan Market as a vendor. Learn about booth sizes, pricing, the application process, and what it means to be part of Austin's community artisan market.">
@@ -120,6 +129,15 @@
     @media (max-width: 768px) {
       .booth-options { grid-template-columns: 1fr; }
     }
+
+    .venue-apply-row { margin-top: 24px; }
+    .venue-apply-lede { text-align: center; color: var(--text-body); margin-bottom: 20px; }
+    .venue-apply-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .venue-apply-card { display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1px solid var(--rule); border-radius: 8px; text-decoration: none; color: inherit; background: #FAF3E0; transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; }
+    .venue-apply-card:hover { transform: translateY(-2px); border-color: var(--terra); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .venue-apply-card .vc-title { font-family: "Fraunces", serif; font-size: 1.2rem; font-weight: 600; color: #1e3510; }
+    .venue-apply-card .vc-city { font-size: 0.85rem; color: var(--text-muted); }
+    .venue-apply-card .vc-cta { margin-top: 8px; font-weight: 600; color: #a05a3b; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -309,8 +327,30 @@
             <p>Arrive 1.5 hours before the market opens. Bring your own tent, tables, and displays. The market handles the rest.</p>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 16px;">
-          <a href="https://forms.gle/jWC4n2t4qfdfmTcC9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply to Vend</a>
+        <div class="venue-apply-row" role="group" aria-label="Apply by venue">
+          <p class="venue-apply-lede">Choose the venue you want to apply for. Each location has its own upcoming dates and setup notes.</p>
+          <div class="venue-apply-grid">
+            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Easton+Park" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="easton-park">
+              <span class="vc-title">Easton Park</span>
+              <span class="vc-city">Austin, TX</span>
+              <span class="vc-cta">Apply for Easton Park &raquo;</span>
+            </a>
+            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Goodnight+Ranch" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="goodnight-ranch">
+              <span class="vc-title">Goodnight Ranch</span>
+              <span class="vc-city">Austin, TX</span>
+              <span class="vc-cta">Apply for Goodnight Ranch &raquo;</span>
+            </a>
+            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Whisper+Valley" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="whisper-valley">
+              <span class="vc-title">Whisper Valley</span>
+              <span class="vc-city">Manor, TX</span>
+              <span class="vc-cta">Apply for Whisper Valley &raquo;</span>
+            </a>
+            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Wolf+Ranch" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="wolf-ranch">
+              <span class="vc-title">Wolf Ranch</span>
+              <span class="vc-city">Georgetown, TX</span>
+              <span class="vc-cta">Apply for Wolf Ranch &raquo;</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -395,7 +435,7 @@
         <h2 id="vendors-cta-heading">Ready to Bring Your Work to the Market?</h2>
         <p>Applications are reviewed on a rolling basis. Space is limited each month, so apply early for your preferred date and venue.</p>
         <div class="cta-row">
-          <a href="https://forms.gle/jWC4n2t4qfdfmTcC9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply to Vend</a>
+          <a href="#apply-heading" class="btn btn-primary">Choose a Venue to Apply</a>
           <a href="../contact/" class="btn btn-outline">Ask a Question</a>
         </div>
       </div>
