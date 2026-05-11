@@ -1,28 +1,89 @@
-# Whitelist approach: deny everything at root, then allow specific items.
-# Keeps business/internal docs local, only the website and its CHANGELOG ship to this repo.
+# Aeopic SO29 compliant
+# dependencies
+node_modules
+.pnp
+.pnp.js
 
-/*
-!.gitignore
-!.github/
-!README.md
-!CHANGELOG.md
-!DEPLOY.md
-!site/
-!docs/
+# testing
+coverage
 
-# Deny common junk anywhere
-**/node_modules/
-**/.next/
-**/dist/
-**/build/
-**/.cache/
-**/__pycache__/
-**/.DS_Store
-**/Thumbs.db
-**/*.log
-**/.env
-**/.env.*
-**/*.pem
-**/*.key
-**/credentials*
-**/secrets*
+# next.js
+.next
+out
+build
+dist
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files (NEVER commit secrets)
+.env
+.env*.local
+.env.local
+.env.development
+.env.production
+.env.test
+*.key
+*.pem
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# supabase
+supabase/.branches
+supabase/.temp
+
+# OS
+Thumbs.db
+
+# Client PII data intake (SO29). Vendor rosters, customer emails, dry-run reports.
+data/intake/
+*.numbers
+
+# Scope-blocked data import pipeline (Sam scope-guard RED 2026-04-30)
+scripts/
+
+# Supabase migration runner with hardcoded PAT/project ref - never commit secrets
+# (former apply_0004.py block removed - file is now env-var only, safe to track)
+
+# Call recordings - client audio/video/transcripts, PII risk
+call-recordings/
+
+# Higgsfield generation state files - machine-local ephemera
+generation-progress.json
+generation-urls.json
+
+# Project ops docs that live in the client folder, not the app repo
+account-access.md
+IMAGE_PROMPTS.md
+patch_site_v2.py
+
+
+# Internal Aeopic docs - private to operations, never commit to client-facing repo.
+# Canonical copies live in Aeopic/ops/clients-private/move-mountains-market/docs/.
+docs/transcripts/
+docs/_private/
+docs/internal/
+docs/*-call-notes.md
+docs/*-call-notes-*.md
+docs/amanda-*.md
+docs/transcript-reconciliation.md
+docs/build-plan-*.md
+docs/onboarding-holes.md
+docs/*-pricing-options.md
+docs/*-upside-hypothesis.md
+
+# Python cache (never commit)
+__pycache__/
+*.pyc
+supabase/__pycache__/
