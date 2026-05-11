@@ -10,11 +10,10 @@ This script automates the safe parts:
 
 Usage:
   python supabase/rotate_pat.py NEW_PAT_HERE
-
-After running, REVOKE the old token at the dashboard:
-  https://supabase.com/dashboard/account/tokens
 """
 import os, sys, json, urllib.request, urllib.error, pathlib
+
+NL = chr(10)
 
 if len(sys.argv) < 2:
     print("Usage: python supabase/rotate_pat.py <new_pat>")
@@ -28,7 +27,6 @@ if not NEW_PAT.startswith("sbp_"):
 PROJECT_REF = "fjklsxpjcneysaoopqmi"
 URL = f"https://api.supabase.com/v1/projects/{PROJECT_REF}"
 
-# Step 1: verify new PAT
 print("[1/3] Verifying new PAT against Management API...")
 req = urllib.request.Request(URL, method="GET", headers={
     "Authorization": f"Bearer {NEW_PAT}",
@@ -38,12 +36,11 @@ req = urllib.request.Request(URL, method="GET", headers={
 try:
     with urllib.request.urlopen(req, timeout=15) as resp:
         data = json.loads(resp.read().decode("utf-8"))
-        print(f"      OK project={data.get('name','?')}")
+        print(f"      OK project={data.get(chr(39)+chr(110)+chr(97)+chr(109)+chr(101)+chr(39),chr(63))}".replace(chr(39),"\""))
 except urllib.error.HTTPError as e:
     print(f"      FAIL status={e.code}, aborting rotation")
     sys.exit(1)
 
-# Step 2: write to .env.local
 env_local_path = pathlib.Path(__file__).parent.parent / ".env.local"
 print(f"[2/3] Updating {env_local_path.name}...")
 existing = ""
@@ -57,25 +54,19 @@ if "SUPABASE_PAT=" in existing:
             new_lines.append(f"SUPABASE_PAT={NEW_PAT}")
         else:
             new_lines.append(line)
-    env_local_path.write_text("
-".join(new_lines) + "
-", encoding="utf-8")
+    env_local_path.write_text(NL.join(new_lines) + NL, encoding="utf-8")
     print("      Replaced existing SUPABASE_PAT line")
 else:
     with env_local_path.open("a", encoding="utf-8") as f:
-        if existing and not existing.endswith("
-"):
-            f.write("
-")
-        f.write(f"SUPABASE_PAT={NEW_PAT}
-")
+        if existing and not existing.endswith(NL):
+            f.write(NL)
+        f.write(f"SUPABASE_PAT={NEW_PAT}" + NL)
     print("      Appended SUPABASE_PAT line")
 
-# Step 3: reminder to revoke
 print()
 print("[3/3] MANUAL STEP REMAINING")
 print("      Go to https://supabase.com/dashboard/account/tokens")
-print("      Revoke the OLD token (the one that started with sbp_bb03...eeaed5)")
+print("      Revoke the OLD token (the one starting sbp_bb03 ending eeaed5)")
 print("      The new one is now wired and verified.")
 print()
 print("Done.")

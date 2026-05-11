@@ -67,3 +67,23 @@ generation-urls.json
 account-access.md
 IMAGE_PROMPTS.md
 patch_site_v2.py
+
+
+# Internal Aeopic docs - private to operations, never commit to client-facing repo.
+# Canonical copies live in Aeopic/ops/clients-private/move-mountains-market/docs/.
+docs/transcripts/
+docs/_private/
+docs/internal/
+docs/*-call-notes.md
+docs/*-call-notes-*.md
+docs/amanda-*.md
+docs/transcript-reconciliation.md
+docs/build-plan-*.md
+docs/onboarding-holes.md
+docs/*-pricing-options.md
+docs/*-upside-hypothesis.md
+
+# Python cache (never commit)
+__pycache__/
+*.pyc
+supabase/__pycache__/
