@@ -1506,3 +1506,85 @@ hr {
   line-height: 1.75;
 }
 
+/* ============================================================
+   HOURS TABLE (per-location, on Find Us Near You section)
+   ============================================================ */
+.hours-table-wrap {
+  margin-top: 56px;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hours-table-heading {
+  font-family: var(--font-head, "Fraunces", Georgia, serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--text-dark, #2C1810);
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.hours-table-note {
+  text-align: center;
+  color: var(--text-muted, #6B5A4A);
+  font-size: 0.95rem;
+  margin: 0 0 20px;
+}
+
+.hours-table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--rule, #ddd4c4);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 560px;
+}
+
+.hours-table thead {
+  background: var(--teal, #0E7C7B);
+  color: #fff;
+}
+
+.hours-table th,
+.hours-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule, #ddd4c4);
+  vertical-align: middle;
+}
+
+.hours-table thead th {
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: none;
+}
+
+.hours-table tbody th {
+  font-weight: 600;
+  color: var(--text-dark, #2C1810);
+  font-family: var(--font-head, "Fraunces", Georgia, serif);
+  font-size: 1rem;
+}
+
+.hours-table tbody td {
+  color: var(--text-body, #4A3728);
+}
+
+.hours-table tbody tr:last-child th,
+.hours-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 720px) {
+  .hours-table-wrap { margin-top: 40px; }
+  .hours-table th, .hours-table td { padding: 10px 12px; font-size: 0.88rem; }
+}
+
