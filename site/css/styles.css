@@ -621,6 +621,20 @@ hr {
   line-height: 1.5;
 }
 
+.venue-logo {
+  display: block;
+  max-width: 140px;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 0 16px 0;
+}
+
+@media (max-width: 720px) {
+  .venue-logo { max-width: 120px; max-height: 48px; }
+}
+
 /* ============================================================
    VENDOR CATEGORIES GRID
    ============================================================ */
