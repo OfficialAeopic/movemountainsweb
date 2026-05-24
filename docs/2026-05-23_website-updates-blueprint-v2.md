@@ -376,3 +376,21 @@ Once ALL priorities are complete and the site is deployed and verified:
 - Navigation structure + mobile hamburger
 - Responsive layout framework
 - Overall page structure and section ordering (just update content within)
+
+---
+
+## Status: COMPLETE
+
+- Date: 2026-05-24
+- Phases A and B both shipped on `staging/blueprint-v2-phase-b-2026-05-24` (forked from `staging/blueprint-v2-phase-a-2026-05-24`).
+- Commits:
+  - Phase A: `002a966` (Goodnight Ranch removal + green->teal palette swap)
+  - Phase B: `9ca1e44` (P2 venues + P4 copy + P6 normalize + count flip), `f60df2a` (P7 forms + vendor app), `23bd45e` (P8 data deletion log)
+- Build logs:
+  - `Aeopic/ops/build-log/2026-05-24_move-mountains-market_blueprint-v2-phase-a.md`
+  - `Aeopic/ops/build-log/2026-05-24_move-mountains-market_blueprint-v2-phase-b.md`
+- Transcript-reconciliation: updated 2026-05-24.
+- Out-of-scope, awaiting Amanda assets before main merge:
+  - P2C: Rough Hollow and Travisso community logos
+  - P5: real event photos to replace stock library
+- NOT pushed to remote. Local staging only. Phase A + Phase B merge to `main` is gated on Amanda P2C + P5 arrival.
