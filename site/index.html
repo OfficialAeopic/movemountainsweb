@@ -600,42 +600,47 @@
   <script src="/js/chatbot-kb.js"></script>
   <script src="/js/chatbot.js"></script>
 <script>
+  // Homepage newsletter form: POST to /api/forms/newsletter (Resend). Mailto fallback on failure.
   (function() {
     var form = document.querySelector("form.newsletter-form");
     if (!form) return;
-    // Inject success element if not already present
     var success = form.parentNode.querySelector(".intake-success-newsletter-home");
     if (!success) {
-      var existing = form.parentNode.querySelector("[role='status']");
-      if (!existing) {
-        var div = document.createElement("div");
-        div.className = "intake-success-newsletter-home";
-        div.setAttribute("role", "status");
-        div.setAttribute("aria-live", "polite");
-        div.style.display = "none";
-        div.style.marginTop = "12px";
-        div.style.color = "#0E7C7B";
-        div.style.fontWeight = "600";
-        div.textContent = "Thanks. We got it.";
-        form.parentNode.insertBefore(div, form.nextSibling);
-        success = div;
-      } else {
-        success = existing;
-      }
+      var div = document.createElement("div");
+      div.className = "intake-success-newsletter-home";
+      div.setAttribute("role", "status");
+      div.setAttribute("aria-live", "polite");
+      div.style.display = "none";
+      div.style.marginTop = "12px";
+      div.style.color = "#0E7C7B";
+      div.style.fontWeight = "600";
+      div.textContent = "Thanks. You are on the list.";
+      form.parentNode.insertBefore(div, form.nextSibling);
+      success = div;
     }
-    // TODO: swap to a real backend (Formspree, Mailchimp, ConvertKit, etc.) once Amanda confirms.
-    // Until then, open the user's mail client with the address prefilled so the signup
-    // is not silently lost. Recipient: movemountainsmarket@gmail.com.
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", async function(e) {
       e.preventDefault();
       var emailInput = form.querySelector("input[type=email]");
       var addr = emailInput && emailInput.value ? emailInput.value : "";
-      var subject = encodeURIComponent("Newsletter signup from " + (addr || "the website"));
-      var body = encodeURIComponent("Please add this email to the Move Mountains newsletter list:\n\n" + addr);
-      window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" + subject + "&body=" + body;
-      if (success) { success.style.display = "block"; }
       var btn = form.querySelector("button[type=submit]");
-      if (btn) { btn.textContent = "Sent"; btn.disabled = true; }
+      if (btn) { btn.disabled = true; btn.textContent = "Subscribing..."; }
+      try {
+        var res = await fetch("/api/forms/newsletter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: addr, source: "homepage-newsletter" })
+        });
+        var payload = await res.json().catch(function() { return {}; });
+        if (!res.ok || !payload.success) throw new Error(payload.error || "Subscribe failed");
+        success.style.display = "block";
+        form.reset();
+        if (btn) { btn.textContent = "Subscribed"; }
+      } catch (err) {
+        var subject = encodeURIComponent("Newsletter signup from " + (addr || "the website"));
+        var body = encodeURIComponent("Please add this email to the Move Mountains newsletter list:\n\n" + addr);
+        window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" + subject + "&body=" + body;
+        if (btn) { btn.disabled = false; btn.textContent = "Subscribe"; }
+      }
     });
   })();
   </script>

@@ -329,21 +329,37 @@
         </div>
         <div class="venue-apply-row" role="group" aria-label="Apply by venue">
           <p class="venue-apply-lede">Choose the venue you want to apply for. Each location has its own upcoming dates and setup notes.</p>
+          <!--
+            TODO (Amanda 2026-05-21): Amanda is migrating from a single shared Google Form to per-location JotForm
+            applications. Swap each href below to its venue-specific JotForm URL once Amanda provides the 5 links
+            (Easton Park, Wolf Ranch, Whisper Valley, Rough Hollow, Travisso). The current Google Form with the
+            ?venue= query param remains live until then so applications are never dropped.
+          -->
           <div class="venue-apply-grid">
             <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Easton+Park" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="easton-park">
               <span class="vc-title">Easton Park</span>
               <span class="vc-city">Austin, TX</span>
               <span class="vc-cta">Apply for Easton Park &raquo;</span>
             </a>
+            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Wolf+Ranch" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="wolf-ranch">
+              <span class="vc-title">Wolf Ranch</span>
+              <span class="vc-city">Georgetown, TX</span>
+              <span class="vc-cta">Apply for Wolf Ranch &raquo;</span>
+            </a>
             <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Whisper+Valley" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="whisper-valley">
               <span class="vc-title">Whisper Valley</span>
               <span class="vc-city">Manor, TX</span>
               <span class="vc-cta">Apply for Whisper Valley &raquo;</span>
             </a>
-            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Wolf+Ranch" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="wolf-ranch">
-              <span class="vc-title">Wolf Ranch</span>
-              <span class="vc-city">Georgetown, TX</span>
-              <span class="vc-cta">Apply for Wolf Ranch &raquo;</span>
+            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Rough+Hollow" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="rough-hollow">
+              <span class="vc-title">Rough Hollow</span>
+              <span class="vc-city">Lakeway, TX</span>
+              <span class="vc-cta">Apply for Rough Hollow &raquo;</span>
+            </a>
+            <a href="https://forms.gle/jWC4n2t4qfdfmTcC9?venue=Travisso" target="_blank" rel="noopener noreferrer" class="venue-apply-card" data-venue="travisso">
+              <span class="vc-title">Travisso</span>
+              <span class="vc-city">Leander, TX</span>
+              <span class="vc-cta">Apply for Travisso &raquo;</span>
             </a>
           </div>
         </div>

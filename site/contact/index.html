@@ -297,71 +297,109 @@
   <script src="/js/chatbot-kb.js"></script>
   <script src="/js/chatbot.js"></script>
 <script>
+  // Contact form: POST to /api/forms/contact (Resend). Falls back to mailto if the API call fails.
   (function() {
     var form = document.querySelector("form.contact-form");
     if (!form) return;
-    // Inject success element if not already present
     var success = form.parentNode.querySelector(".intake-success-contact");
     if (!success) {
-      var existing = form.parentNode.querySelector("[role='status']");
-      if (!existing) {
-        var div = document.createElement("div");
-        div.className = "intake-success-contact";
-        div.setAttribute("role", "status");
-        div.setAttribute("aria-live", "polite");
-        div.style.display = "none";
-        div.style.marginTop = "12px";
-        div.style.color = "#0E7C7B";
-        div.style.fontWeight = "600";
-        div.textContent = "Thanks. We got it.";
-        form.parentNode.insertBefore(div, form.nextSibling);
-        success = div;
-      } else {
-        success = existing;
-      }
+      var div = document.createElement("div");
+      div.className = "intake-success-contact";
+      div.setAttribute("role", "status");
+      div.setAttribute("aria-live", "polite");
+      div.style.display = "none";
+      div.style.marginTop = "12px";
+      div.style.color = "#0E7C7B";
+      div.style.fontWeight = "600";
+      div.textContent = "Thanks. Your message is on its way to movemountainsmarket@gmail.com.";
+      form.parentNode.insertBefore(div, form.nextSibling);
+      success = div;
     }
-    // TODO: swap to Formspree (or similar) once Amanda confirms an endpoint. For now,
-    // we open the user's mail client with a prefilled message to movemountainsmarket@gmail.com
-    // so submissions are never silently lost.
-    form.addEventListener("submit", function(e) {
+    var error = form.parentNode.querySelector(".intake-error-contact");
+    if (!error) {
+      var errDiv = document.createElement("div");
+      errDiv.className = "intake-error-contact";
+      errDiv.setAttribute("role", "alert");
+      errDiv.style.display = "none";
+      errDiv.style.marginTop = "12px";
+      errDiv.style.color = "#a83232";
+      errDiv.style.fontWeight = "600";
+      form.parentNode.insertBefore(errDiv, form.nextSibling);
+      error = errDiv;
+    }
+
+    form.addEventListener("submit", async function(e) {
       e.preventDefault();
-      var data = {};
-      var fd = new FormData(form);
-      fd.forEach(function(v, k) { data[k] = v; });
-      var first = data.first_name || "";
-      var last = data.last_name || "";
-      var email = data.email || "";
-      var inquiry = data.inquiry_type || "general";
-      var message = data.message || "";
-      var subjectLabel = "[" + inquiry + "] Website inquiry from " + (first + " " + last).trim();
-      var bodyText =
-        "Name: " + (first + " " + last).trim() + "\n" +
-        "Email: " + email + "\n" +
-        "Inquiry type: " + inquiry + "\n\n" +
-        "Message:\n" + message;
-      var subject = encodeURIComponent(subjectLabel);
-      var body = encodeURIComponent(bodyText);
-      window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" + subject + "&body=" + body;
-      if (success) { success.style.display = "block"; }
+      error.style.display = "none";
       var btn = form.querySelector("button[type=submit]");
-      if (btn) { btn.textContent = "Sent"; btn.disabled = true; }
+      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+
+      var fd = new FormData(form);
+      var data = {};
+      fd.forEach(function(v, k) { data[k] = v; });
+
+      try {
+        var res = await fetch("/api/forms/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        var payload = await res.json().catch(function() { return {}; });
+        if (!res.ok || !payload.success) {
+          throw new Error(payload.error || "Send failed");
+        }
+        success.style.display = "block";
+        form.reset();
+        if (btn) { btn.textContent = "Sent"; }
+      } catch (err) {
+        // Fallback: open mail client so message is never lost.
+        error.textContent = "We could not send the message automatically. Opening your email app instead.";
+        error.style.display = "block";
+        var first = data.first_name || "";
+        var last = data.last_name || "";
+        var inquiry = data.inquiry_type || "general";
+        var message = data.message || "";
+        var subjectLabel = "[" + inquiry + "] Website inquiry from " + (first + " " + last).trim();
+        var bodyText =
+          "Name: " + (first + " " + last).trim() + "\n" +
+          "Email: " + (data.email || "") + "\n" +
+          "Inquiry type: " + inquiry + "\n\n" +
+          "Message:\n" + message;
+        window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" +
+          encodeURIComponent(subjectLabel) + "&body=" + encodeURIComponent(bodyText);
+        if (btn) { btn.disabled = false; btn.textContent = "Send Message"; }
+      }
     });
   })();
 
-  // Newsletter form on contact page: mailto fallback.
-  // TODO: replace with Formspree/Mailchimp/ConvertKit when Amanda confirms.
+  // Newsletter form on contact page: POST to /api/forms/newsletter (Resend). Mailto fallback on failure.
   (function() {
     var nlForm = document.querySelector("form.newsletter-form");
     if (!nlForm) return;
-    nlForm.addEventListener("submit", function(e) {
+    nlForm.addEventListener("submit", async function(e) {
       e.preventDefault();
       var emailInput = nlForm.querySelector("input[type=email]");
       var addr = emailInput && emailInput.value ? emailInput.value : "";
-      var subject = encodeURIComponent("Newsletter signup from " + (addr || "the website"));
-      var body = encodeURIComponent("Please add this email to the Move Mountains newsletter list:\n\n" + addr);
-      window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" + subject + "&body=" + body;
       var btn = nlForm.querySelector("button[type=submit]");
-      if (btn) { btn.textContent = "Sent"; btn.disabled = true; }
+      if (btn) { btn.disabled = true; btn.textContent = "Subscribing..."; }
+      try {
+        var res = await fetch("/api/forms/newsletter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: addr, source: "contact-page-newsletter" })
+        });
+        var payload = await res.json().catch(function() { return {}; });
+        if (!res.ok || !payload.success) {
+          throw new Error(payload.error || "Subscribe failed");
+        }
+        if (btn) { btn.textContent = "Subscribed"; }
+        nlForm.reset();
+      } catch (err) {
+        var subject = encodeURIComponent("Newsletter signup from " + (addr || "the website"));
+        var body = encodeURIComponent("Please add this email to the Move Mountains newsletter list:\n\n" + addr);
+        window.location.href = "mailto:movemountainsmarket@gmail.com?subject=" + subject + "&body=" + body;
+        if (btn) { btn.disabled = false; btn.textContent = "Subscribe"; }
+      }
     });
   })();
   </script>
