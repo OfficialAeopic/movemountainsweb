@@ -9,8 +9,8 @@ window.CHATBOT_KB = {
     "fallbackMessage": "I do not have that specific information on our website. Please reach out through our <a href=\"/contact/\">contact form</a> and we will be happy to help!",
     "phone": "",
     "contactUrl": "/contact/",
-    "brandPrimary": "#2D5016",
-    "brandDark": "#1e3510",
+    "brandPrimary": "#0E7C7B",
+    "brandDark": "#074E4D",
     "brandLight": "#FAF3E0"
   },
   "entries": [
@@ -52,7 +52,7 @@ window.CHATBOT_KB = {
         "location of the market",
         "markets"
       ],
-      "response": "Move Mountains Artisan Market is a monthly pop-up series. We rotate across Austin-area venues, currently three and growing to six. <strong>Easton Park</strong> (7604 Solari Dr, Austin TX 78744) on the first Sunday, <strong>Goodnight Ranch</strong> (South Austin) on the second Saturday, and <strong>Whisper Valley</strong> (9400 Petrichor Blvd, Manor TX 78653) on the third Sunday. See the <a href=\"/events/\">events page</a> for exact dates.",
+      "response": "Move Mountains Artisan Market is a monthly pop-up series. We rotate across Austin-area venues. <strong>Easton Park</strong> (7604 Solari Dr, Austin TX 78744) on the first Sunday, <strong>Wolf Ranch</strong> (101 River Overlook Rd, Georgetown TX 78628) on the first Thursday evening, and <strong>Whisper Valley</strong> (9400 Petrichor Blvd, Manor TX 78653) on the third Sunday. See the <a href=\"/events/\">events page</a> for exact dates.",
       "chips": [
         "Hours",
         "Contact"
@@ -138,7 +138,7 @@ window.CHATBOT_KB = {
         "where to park",
         "easy to park"
       ],
-      "response": "All our venues have free parking on site on site. Easton Park and Goodnight Ranch have community amenity lots, and Whisper Valley has the Discovery Center lot. Arrive closer to opening for the closest spots.",
+      "response": "All our venues have free parking on site. Easton Park has a community amenity lot, Wolf Ranch uses the Community Pavilion lot in Georgetown, and Whisper Valley has the Discovery Center lot. Arrive closer to opening for the closest spots.",
       "chips": [
         "Hours",
         "Admission",
@@ -197,7 +197,7 @@ window.CHATBOT_KB = {
         "whats next",
         "whens the next"
       ],
-      "response": "Move Mountains runs four markets a month. First Sunday at Easton Park, first Thursday evening at Wolf Ranch in Georgetown, second Sunday at Goodnight Ranch, third Sunday at Whisper Valley. See the <a href=\"/events/\">events page</a> for exact dates and current hours.",
+      "response": "Move Mountains runs three markets a month. First Sunday at Easton Park, first Thursday evening at Wolf Ranch in Georgetown, and third Sunday at Whisper Valley. See the <a href=\"/events/\">events page</a> for exact dates and current hours.",
       "chips": [
         "Venues",
         "Hours",
@@ -285,7 +285,7 @@ window.CHATBOT_KB = {
         "pop",
         "series"
       ],
-      "response": "Move Mountains Artisan Market is a community-centered pop-up market series running across three\n            Austin-area venues every month. Dozens of local artisan vendors, live acoustic music, hands-on\n            activities for kids, and the kind of Saturday morning that actually slows you down. See Upcoming Events Become a Vendor Local Vendors 3 Events Per Month 2022 Founded in Manor, TX L...",
+      "response": "Move Mountains Artisan Market is a community-centered pop-up market series running across three\n            Austin-area venues every month. Dozens of local artisan vendors, live acoustic music, hands-on\n            activities for kids, and the kind of Saturday morning that actually slows you down. See Upcoming Events Become a Vendor Local Vendors 3 Markets Per Month 2022 Founded in Manor, TX L...",
       "chips": []
     },
     {
@@ -302,7 +302,7 @@ window.CHATBOT_KB = {
         "comes",
         "neighborhood"
       ],
-      "response": "Because no single neighborhood owns community, Move Mountains rotates across three\n              Brookfield Residential communities in the Austin metro. Easton Park on the first Sunday,\n              Goodnight Ranch on the second Saturday, and Whisper Valley on the third Sunday. Each event runs 11am to 3pm and brings the full market experience to a different corner\n              of the city, every...",
+      "response": "Because no single neighborhood owns community, Move Mountains rotates across three\n              communities in the Austin metro. Easton Park on the first Sunday,\n              Wolf Ranch on the first Thursday evening, and Whisper Valley on the third Sunday. Each daytime event runs 11am to 3pm and brings the full market experience to a different corner\n              of the city, every...",
       "chips": []
     },
     {
@@ -379,7 +379,7 @@ window.CHATBOT_KB = {
         "neighborhoods",
         "check"
       ],
-      "response": "Move Mountains runs monthly across four Austin-metro neighborhoods. Check the events page for exact upcoming dates. 1st Sunday Monthly",
+      "response": "Move Mountains runs monthly across three Austin-metro neighborhoods. Check the events page for exact upcoming dates. 1st Sunday Monthly",
       "chips": []
     },
     {
@@ -394,20 +394,6 @@ window.CHATBOT_KB = {
         "monthly"
       ],
       "response": "Skyline Park 7604 Solari Dr Austin, TX 78744 2nd Saturday Monthly",
-      "chips": []
-    },
-    {
-      "id": "goodnight-ranch",
-      "patterns": [
-        "goodnight",
-        "ranch",
-        "community",
-        "green",
-        "austin",
-        "sunday",
-        "monthly"
-      ],
-      "response": "Community Green Austin, TX 3rd Sunday Monthly",
       "chips": []
     },
     {
@@ -482,7 +468,7 @@ window.CHATBOT_KB = {
         "belief",
         "local"
       ],
-      "response": "Move Mountains Artisan Market started with a simple belief: local makers deserve a platform,\n            and neighbors deserve a reason to come together. Since 2022, that belief has grown into a\n            four-venue monthly market series across Austin, Georgetown, and Manor, TX. How It Started <a href=\"/about/\">Learn more</a>",
+      "response": "Move Mountains Artisan Market started with a simple belief: local makers deserve a platform,\n            and neighbors deserve a reason to come together. Since 2022, that belief has grown into a\n            three-venue monthly market series across Austin, Georgetown, and Manor, TX. How It Started <a href=\"/about/\">Learn more</a>",
       "chips": []
     },
     {
@@ -665,12 +651,12 @@ window.CHATBOT_KB = {
         "skyline",
         "solari",
         "austin",
-        "goodnight",
+        "wolf",
         "ranch",
         "whisper",
         "valley"
       ],
-      "response": "📍 Market Locations Easton Park (Skyline Park) 7604 Solari Dr, Austin TX 78744 Goodnight Ranch Austin, TX Whisper Valley (Discovery Center) 9400 Petrichor Blvd, Manor TX 78653 🕑 Market Hours Standard season: 11:00 AM – 3:00 PM Summer season: 10:00 AM – 2:00 PM 📅 Frequency Monthly events across our current venues, growing to six locations. Check the events page for exact dates. 💬 Best Contact Method Instagram DM @movemountai... <a href=\"/contact/\">Learn more</a>",
+      "response": "📍 Market Locations Easton Park (Skyline Park) 7604 Solari Dr, Austin TX 78744 Wolf Ranch (Community Pavilion) 101 River Overlook Rd, Georgetown TX 78628 Whisper Valley (Discovery Center) 9400 Petrichor Blvd, Manor TX 78653 🕑 Market Hours Standard season: 11:00 AM – 3:00 PM Summer season: 10:00 AM – 2:00 PM Wolf Ranch evening market: 5:30 PM – 8:30 PM 📅 Frequency Monthly events across our three venues. Check the events page for exact dates. 💬 Best Contact Method Instagram DM @movemountai... <a href=\"/contact/\">Learn more</a>",
       "chips": []
     },
     {
@@ -729,7 +715,7 @@ window.CHATBOT_KB = {
         "austin",
         "manor"
       ],
-      "response": "Move Mountains runs four markets every month across Austin, Georgetown, and Manor, TX. Daytime markets run 11am to 3pm standard (10am to 2pm summer). The Wolf Ranch evening market runs 5:30pm to 8:30pm. No tickets, no admission. Just show up. <a href=\"/events/\">Learn more</a>",
+      "response": "Move Mountains runs three markets every month across Austin, Georgetown, and Manor, TX. Daytime markets run 11am to 3pm standard (10am to 2pm summer). The Wolf Ranch evening market runs 5:30pm to 8:30pm. No tickets, no admission. Just show up. <a href=\"/events/\">Learn more</a>",
       "chips": []
     },
     {
@@ -768,14 +754,15 @@ window.CHATBOT_KB = {
       "chips": []
     },
     {
+    {
       "id": "move-mountains-market",
       "patterns": [
         "move",
         "mountains",
         "market",
-        "goodnight",
-        "ranch",
-        "austin",
+        "whisper",
+        "valley",
+        "manor",
         "vendors",
         "free",
         "admission",
@@ -783,7 +770,7 @@ window.CHATBOT_KB = {
         "music",
         "kids"
       ],
-      "response": "Goodnight Ranch Austin, TX 10:00 AM – 2:00 PM • Local artisan vendors • Free admission Live Music Kids Corner Scavenger Hunt Dog Friendly Updates May 18 2026 <a href=\"/events/\">Learn more</a>",
+      "response": "Whisper Valley (Discovery Center) 9400 Petrichor Blvd, Manor, TX 78653 10:00 AM – 2:00 PM • Local artisan vendors • Free admission Live Music Kids Corner Monthly Raffle Dog Friendly Directions May 18 2026 <a href=\"/events/\">Learn more</a>",
       "chips": []
     },
     {
@@ -1208,7 +1195,7 @@ window.CHATBOT_KB = {
         "porta potty",
         "facilities"
       ],
-      "response": "All our venues have restrooms on site. Easton Park and Whisper Valley use the community center restrooms near the market footprint. Goodnight Ranch provides portable restrooms at the event. Ask any volunteer in an MMM shirt for directions.",
+      "response": "All our venues have restrooms on site. Easton Park, Wolf Ranch, and Whisper Valley use the community center or pavilion restrooms near the market footprint. Ask any volunteer in an MMM shirt for directions.",
       "chips": [
         "Locations",
         "Accessibility",
@@ -1475,7 +1462,7 @@ window.CHATBOT_KB = {
         "getting to the market",
         "drive to the market"
       ],
-      "response": "Each market has a different address. Easton Park: 7604 Solari Dr, Austin TX. Whisper Valley Discovery Center: 9400 Petrichor Blvd, Manor TX. Goodnight Ranch: Austin TX (exact meeting point shared in our event posts). Drop any of those into Google Maps. Austin CapMetro does not run directly to all venues, so driving or rideshare is easiest.",
+      "response": "Each market has a different address. Easton Park: 7604 Solari Dr, Austin TX. Wolf Ranch Community Pavilion: 101 River Overlook Rd, Georgetown TX 78628. Whisper Valley Discovery Center: 9400 Petrichor Blvd, Manor TX. Drop any of those into Google Maps. Austin CapMetro does not run directly to all venues, so driving or rideshare is easiest.",
       "chips": [
         "Locations",
         "Parking",
@@ -1585,20 +1572,6 @@ window.CHATBOT_KB = {
       ]
     },
     {
-      "id": "goodnight-ranch-venue",
-      "patterns": [
-        "goodnight ranch",
-        "second saturday",
-        "goodnight"
-      ],
-      "response": "Goodnight Ranch, Austin TX. Second Saturday of every month, 11 AM - 3 PM (summer hours 10 AM - 2 PM). Exact meeting point and parking info shared on Instagram and Facebook the week of the event. Family and pet friendly.",
-      "chips": [
-        "All locations",
-        "Hours",
-        "Social"
-      ]
-    },
-    {
       "id": "whisper-valley-venue",
       "patterns": [
         "whisper valley",
@@ -1640,7 +1613,7 @@ window.CHATBOT_KB = {
         "when do you run",
         "monthly schedule"
       ],
-      "response": "Three markets every month. First Sunday at Easton Park, second Saturday at Goodnight Ranch, third Sunday at Whisper Valley. 11 AM - 3 PM October through May, 10 AM - 2 PM June through September. Check the This Month section for exact dates.",
+      "response": "Three markets every month. First Sunday at Easton Park, first Thursday evening at Wolf Ranch in Georgetown, and third Sunday at Whisper Valley. 11 AM - 3 PM October through May, 10 AM - 2 PM June through September. Wolf Ranch evening market runs 5:30 PM to 8:30 PM. Check the This Month section for exact dates.",
       "chips": [
         "This month",
         "Locations",
@@ -2293,7 +2266,7 @@ window.CHATBOT_KB = {
         "inside or outside",
         "open air"
       ],
-      "response": "All four markets are outdoor. Easton Park and Whisper Valley are open-air community greens, Goodnight Ranch is an outdoor event area, and Wolf Ranch sits at the Community Pavilion in Georgetown. In rain we deploy with tents, in summer heat we shift to the 10 AM - 2 PM schedule. The Wolf Ranch evening market runs 5:30 PM to 8:30 PM.",
+      "response": "All three markets are outdoor. Easton Park and Whisper Valley are open-air community greens, and Wolf Ranch sits at the Community Pavilion in Georgetown. In rain we deploy with tents, in summer heat we shift to the 10 AM - 2 PM schedule. The Wolf Ranch evening market runs 5:30 PM to 8:30 PM.",
       "chips": [
         "Rain policy",
         "Hours",
@@ -2409,7 +2382,7 @@ window.CHATBOT_KB = {
         "rate the market",
         "testimonial"
       ],
-      "response": "We would love a review. Tag us on Instagram or Facebook, or leave a short review on the venue Google listings (Easton Park, Whisper Valley, Goodnight Ranch). Vendor-specific reviews go on each vendor own page, check the vendor directory.",
+      "response": "We would love a review. Tag us on Instagram or Facebook, or leave a short review on the venue Google listings (Easton Park, Wolf Ranch, Whisper Valley). Vendor-specific reviews go on each vendor own page, check the vendor directory.",
       "chips": [
         "Social",
         "Vendors",

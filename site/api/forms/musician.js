@@ -77,7 +77,7 @@ function renderEmail(heading, intro, rows) {
     .filter(([, value]) => String(value || '').trim())
     .map(([label, value]) => `
       <tr>
-        <td style="padding:8px 0;font-weight:700;color:#2D5016;width:180px;vertical-align:top;">${escapeHtml(label)}</td>
+        <td style="padding:8px 0;font-weight:700;color:#0E7C7B;width:180px;vertical-align:top;">${escapeHtml(label)}</td>
         <td style="padding:8px 0;color:#2C1810;white-space:pre-wrap;">${escapeHtml(value)}</td>
       </tr>
     `)
@@ -85,7 +85,7 @@ function renderEmail(heading, intro, rows) {
 
   return `
     <div style="font-family:Arial,sans-serif;max-width:680px;margin:0 auto;border:1px solid #ddd4c4;border-radius:8px;overflow:hidden;">
-      <div style="background:#2D5016;color:#fff;padding:24px 28px;">
+      <div style="background:#0E7C7B;color:#fff;padding:24px 28px;">
         <h1 style="font-size:22px;line-height:1.2;margin:0 0 8px;">${escapeHtml(heading)}</h1>
         <p style="margin:0;color:#FAF3E0;">${escapeHtml(intro)}</p>
       </div>

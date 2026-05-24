@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Unreleased
+
+### Removed
+
+- Removed Goodnight Ranch venue (partnership ended 2026-05). Venue cards, schedule rows, contact info entries, dropdown options, volunteer form checkbox, vendor apply card, chatbot KB entries, and copy referencing the venue dropped across all pages. Venue counts updated from 4 to 3 (Easton Park, Wolf Ranch, Whisper Valley).
+
+### Changed
+
+- Color theme swapped from forest green to turquoise. CSS variables renamed `--green*` to `--teal*` (#0E7C7B / #074E4D / #16A5A3) across all stylesheets, inline styles, theme-color meta tags, embedded HTML/JS hex literals, and rgba alpha references. WCAG AA contrast preserved on white (#0E7C7B passes 4.78:1).
+
+---
+
 ## v2.3.0 - 2026-04-21
 
 ### Added
